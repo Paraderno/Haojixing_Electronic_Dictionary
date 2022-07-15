@@ -1,3 +1,0 @@
-"D:\clion\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Haojixing_Electronic_Dictionary.dir/objects.a
-"D:\clion\CLion 2021.3.4\bin\mingw\bin\ar.exe" qc CMakeFiles\Haojixing_Electronic_Dictionary.dir/objects.a @CMakeFiles\Haojixing_Electronic_Dictionary.dir\objects1.rsp
-"D:\clion\CLion 2021.3.4\bin\mingw\bin\gcc.exe" -g -Wl,--whole-archive CMakeFiles\Haojixing_Electronic_Dictionary.dir/objects.a -Wl,--no-whole-archive -o Haojixing_Electronic_Dictionary.exe -Wl,--out-implib,libHaojixing_Electronic_Dictionary.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Haojixing_Electronic_Dictionary.dir\linklibs.rsp
