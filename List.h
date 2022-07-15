@@ -11,10 +11,6 @@
 #define TRUE 1
 #define FALSE 0
 
-// 账户类型 普通用户USER 管理员ADMIN
-#define USER 0
-#define ADMIN 1
-
 #define SIZE_ID 10
 #define SIZE_PW 20
 
@@ -40,32 +36,37 @@ typedef struct account{
  * 词条链表的结点
  * 包含一个数据域，两个指针域
  */
-typedef struct DoublyNode
+typedef struct wordNode
 {
     Word word;
-    struct DoublyNode* prev;   //指向前缀结点
-    struct DoublyNode* next;   //指向后继结点
-}DoublyNode;
+    struct WordNode* prev;   //指向前缀结点
+    struct WordNode* next;   //指向后继结点
+}WordNode;
 
 /*!
  * 账户信息记录链表的结点
  * 包含一个数据域，两个指针域
  */
-typedef struct AccountNode
+typedef struct accountNode
 {
     Account account;
-    struct DoublyNode* prev;   //指向前缀结点
-    struct DoublyNode* next;   //指向后继结点
+    struct WordNode* prev;   //指向前缀结点
+    struct WordNode* next;   //指向后继结点
 }AccountNode;
 
-/*!
- * 双向链表头结点
- */
-typedef struct DoublyLinkList
+/** 双向链表头结点 */
+typedef struct wordLinkList
 {
     int length;     //头结点记录链表长度
-    DoublyNode* next;
-}DoublyLinkList;
+    WordNode* next;
+}WordLinkList;
+
+/** 账户信息链表头结点 */
+typedef struct accountLinkList
+{
+    int length;     //头结点记录链表长度
+    AccountNode* next;
+}AccountLinkList;
 
 /*!
  * 比较两个单词是否相同
@@ -85,52 +86,59 @@ int isAccountEqual(Account account1, Account account2);
 
 /*!
  * 在词条链表中指定位置插入一个元素
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param pos 指定位置
  * @param word 插入的元素
  */
-void InsertDoublyLinkList(DoublyLinkList* dlList, int pos, Word word);
+void InsertWordLinkList(WordLinkList* wList, int pos, Word word);
 
 /*!
  * 在账户信息链表中指定位置插入一个元素
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param pos 指定位置
  * @param Account 插入的元素
  */
-void InsertAccountLinkList(DoublyLinkList* dlList, int pos, Account account);
+void InsertAccountLinkList(AccountLinkList* aList, int pos, Account account);
 
 /*!
  * 删除链表指定位置的元素
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param pos 指定位置
  */
-void DeleteDoublyLinkListByPos(DoublyLinkList* dlList, int pos);
+void DeleteWordLinkListByPos(WordLinkList* wList, int pos);
 
 /*!
- * 删除链表指定元素
- * @param dlList 链表头结点
+ * 删除词条链表指定元素
+ * @param wList 链表头结点
  * @param word 指定元素
  */
-void DeleteDoublyLinkListByWord(DoublyLinkList* dlList, Word word);
+void DeleteWordLinkListByWord(WordLinkList* wList, Word word);
+
+/*!
+ * 删除账户信息链表指定元素
+ * @param
+ * */
+void DeleteAccountData(AccountLinkList* aList, Account account);
 
 /*!
  * 查询链表指定位置的元素
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param pos 指定位置
  */
-void GetDoublyLinkListElement(DoublyLinkList* dlList, int pos);
+void GetWordLinkListElement(WordLinkList* wList, int pos);
 
 /*!
  * 打印整个链表
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  */
-void PrintDoublyLinkList(DoublyLinkList* dlList);
+void PrintWordLinkList(WordLinkList* wList);
 
 /*!
- * 修改链表指定位置的元素
- * @param dlList 链表头结点
+ * 修改词条链表指定位置的元素
+ * @param wList 链表头结点
  * @param pos 指定位置
- * @param word 修改后的单词
+ * @param word 新的词条
  */
-void ChangeDoublyLinkElement(DoublyLinkList* dlList, int pos, Word word);
+void ChangeWordListElement(WordLinkList* wList, int pos, Word word);
+
 #endif //HAOJIXING_ELECTRONIC_DICTIONARY_LIST_H

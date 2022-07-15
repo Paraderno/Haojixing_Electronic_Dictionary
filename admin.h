@@ -13,44 +13,44 @@
 
 /*!新增词条
  * 管理员输入需要增添的单词、词性与中文释义,向链表中增加一个单词
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param En 英文单词
  * @param attribute 词性
  * @param Cn 中文释义
  */
-void Add(DoublyLinkList * dlList, char* En, char* Cn);
+void Add(WordLinkList * wList, char* En, char* Cn);
 
 /*!删除词条
  * 管理员输入需要删除的单词，文件中对应的单词将被删除，若输入不存在的单词将会报错
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param En 英文单词
  * @param attribute 词性
  * @param Cn 中文释义
  */
-void Delete(DoublyLinkList * dlList, char* En,  char* Cn);
+void Delete(WordLinkList * wList, char* En,  char* Cn);
 
 /*!修改词条
  * 管理员输入需要修改单词的下标，以及修改后的单词、词性、中文。若输入不存在的单词将会报错
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param pos 待修改单词的下标
  * @param En 英文单词
  * @param attribute 词性
  * @param Cn 中文释义
  */
-void Modify(DoublyLinkList * dlList, int pos, char* En, char* Cn);
+void Modify(WordLinkList * wList, int pos, char* En, char* Cn);
 
 /*!
  * 保存词典文件修改
  * @param
  * @param
  */
-void SaveDictionary(DoublyLinkList *dlList);
+void SaveDictionary(WordLinkList* wList);
 
 /*!
  * 保存账户文件修改
  * @param
  * @param
  */
-void SaveAccountData(DoublyLinkList *dlList);
+void SaveAccountData(AccountLinkList* aList);
 
 #endif //HAOJIXING_ELECTRONIC_DICTIONARY_ADMIN_H

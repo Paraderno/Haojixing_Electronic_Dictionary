@@ -5,47 +5,47 @@
 #include "admin.h"
 #include "list.h"
 
-/** 新增词库
+/** 新增词条
  * @param
  * @param
  * */
-void Add(DoublyLinkList* dlList, char* En, char* Cn)
+void Add (WordLinkList* wList, char* En, char* Cn)
 {
     Word word;
-    strcpy(word.En,En);
-    strcpy(word.Cn,Cn);
-    InsertDoublyLinkList(dlList,dlList->length,word);
+    strcpy(word.En, En);
+    strcpy(word.Cn, Cn);
+    InsertWordLinkList(wList, wList->length, word);
 }
 
 /** 删除词条
  * @param
  * @param
  * */
-void Delete(DoublyLinkList* dlList, char* En, char* Cn)
+void Delete (WordLinkList* wList, char* En, char* Cn)
 {
     Word word;
-    strcpy(word.En,En);
-    strcpy(word.Cn,Cn);
-    DeleteDoublyLinkListByWord(dlList,word);
+    strcpy(word.En, En);
+    strcpy(word.Cn, Cn);
+    DeleteWordLinkListByWord(wList, word);
 }
 
 /** 修改词条 */
-void Modify(DoublyLinkList* dlList, int pos, char* En, char* Cn)
+void Modify(WordLinkList* wList, int pos, char* En, char* Cn)
 {
     Word word;
     strcpy(word.En,En);
     strcpy(word.Cn,Cn);
-    ChangeDoublyLinkElement(dlList, pos, word);
+    InsertWordLinkList(wList, pos, word);
 }
 
 /** 保存词库文件修改 */
-void SaveDictionary(DoublyLinkList* dlList){
+void SaveDictionary(WordLinkList* wList){
     // 打开文件
     FILE* dFile= fopen("resource\\Dictionary.txt", "w");
-    DoublyNode *head = dlList->next;
+    WordNode *head = wList->next;
 
     // 写入数据
-    for (int i = 0; i < dlList->length; ++i) {
+    for (int i = 0; i < wList->length; ++i) {
         fprintf(dFile,"%s %s\n", head->word.En, head->word.Cn);
         head = head->next;
     }
@@ -57,13 +57,13 @@ void SaveDictionary(DoublyLinkList* dlList){
 
 
 /** 保存账户文件修改 */
-void SaveAccountData (DoublyLinkList* dlList) {
+void SaveAccountData (AccountLinkList* aList) {
     // 打开文件
     FILE* aFile = fopen("resource\\Account.txt", "w");
-    AccountNode* currNode = dlList->next;
+    AccountNode* currNode = aList->next;
 
     // 写入数据
-    for (int i = 0; i < dlList->length; ++i) {
+    for (int i = 0; i < aList->length; ++i) {
         fprintf(aFile,"%s %s %d\n", currNode->account.ID, currNode->account.password, currNode->account.type);
         currNode = currNode->next;
     }

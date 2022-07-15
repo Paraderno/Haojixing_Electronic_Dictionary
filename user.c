@@ -3,14 +3,29 @@
  * 用户功能实现
  */
 #include "user.h"
+#include "public.h"
+#include "admin.h"
+#include "List.h"
 
-int Register();
+int Register(char* accountID, char* password) {
+    Account account;
+    AccountLinkList* aList;
+
+    account.type = USER;
+    strcpy(account.ID, accountID);
+    strcpy(account.password, password);
+
+    LoadAccountFile(aList);
+    InsertAccountLinkList(aList, aList->length, account);
+    SaveAccountData(aList);
+
+}
 
 /** 英译汉 */
-void EnToCn(DoublyLinkList* dlList, char* En)
+void EnToCn(WordLinkList* wList, char* En)
 {
-    DoublyNode* currentNode = dlList->next;   //取出第一个结点
-    int length = dlList->length;  //链表长度
+    WordNode* currentNode = wList->next;   //取出第一个结点
+    int length = wList->length;  //链表长度
 
     int pos = 1;
     for(; pos <= length; pos++)
@@ -29,10 +44,10 @@ void EnToCn(DoublyLinkList* dlList, char* En)
 }
 
 /** 汉译英 */
-void CnToEn(DoublyLinkList* dlList, char* Cn)
+void CnToEn(WordLinkList* wList, char* Cn)
 {
-    DoublyNode* currentNode = dlList->next;   //取出第一个结点
-    int length = dlList->length;  //链表长度
+    WordNode* currentNode = wList->next;   //取出第一个结点
+    int length = wList->length;  //链表长度
     int count = 0;
     int pos = 1;
     for(; pos <= length; pos++)

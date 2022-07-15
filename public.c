@@ -6,9 +6,10 @@
 #include <stdio.h>
 #include <malloc.h>
 #include "public.h"
+#include "admin.h"
 
 /** 载入词库 */
-void LoadDictionary (DoublyLinkList* dlList) {
+void LoadDictionary (WordLinkList* wList) {
     Word word;
     int size=0;
 
@@ -23,7 +24,7 @@ void LoadDictionary (DoublyLinkList* dlList) {
             size++;
             fscanf(dFile, "%s %s", word.En, word.Cn);
             // 将词库数据写入空链表
-            InsertDoublyLinkList(dlList, size, word);
+            InsertWordLinkList(wList, size, word);
         }
         printf("加载数据成功.\n");
     }
@@ -32,7 +33,7 @@ void LoadDictionary (DoublyLinkList* dlList) {
 }
 
 /** 载入账户信息数据 */
-void LoadAccountFile (DoublyLinkList* dlList) {
+void LoadAccountFile (AccountLinkList* aList) {
     Account account;
     int size = 0;
 
@@ -47,7 +48,7 @@ void LoadAccountFile (DoublyLinkList* dlList) {
             size++;
             fscanf(aFile, "%s %s %d", account.ID, account.password, &account.type);
             // 将账户信息数据写入空链表
-            InsertAccountLinkList(dlList, size, account);
+            InsertAccountLinkList(aList, size, account);
         }
         printf("加载数据成功.\n");
     }
@@ -70,10 +71,10 @@ int LogIn(int type, char* accountID, char* password)
     scanf("%s", account.password);
      */
 
-    DoublyLinkList* dlLinkList;
-    LoadAccountFile(dlLinkList);
+    AccountLinkList* aList;
+    LoadAccountFile(aList);
 
-    AccountNode* currNode = dlLinkList->next;
+    AccountNode* currNode = aList->next;
     int countEqual;
     for (countEqual = 0; currNode ; ) {
         isAccountEqual(account, currNode->account) ? countEqual++ : 0;
@@ -84,9 +85,6 @@ int LogIn(int type, char* accountID, char* password)
     // 为 0 ： 未查找到相符账户，登陆失败
     return countEqual;
 }
-
-/** 退出登录 */
-int quit();
 
 /** 注销用户 */
 int LogOut(int type, char* accountID, char* password)
@@ -102,39 +100,36 @@ int LogOut(int type, char* accountID, char* password)
     scanf("%s", account.password);
     */
 
-    DoublyLinkList* dlLinkList;
-    LoadAccountFile(dlLinkList);
+    AccountLinkList* aList;
+    LoadAccountFile(aList);
 
-    AccountNode* currNode = dlLinkList->next;
+    AccountNode* currNode = aList->next;
     int countEqual = 0;
     for (int i = 1; currNode ; i++) {
         if (isAccountEqual(account, currNode->account)) {
-            DeleteDoublyLinkListByPos(dlLinkList, i);
+            DeleteAccountData(aList, account);
             countEqual++;
         }
     }
-    SaveAccountData(dlLinkList);
+    SaveAccountData(aList);
 
     return countEqual;
 }
 
 /** 初始菜单 */
-void InitialMenu()
-{
-
-}
+void InitialMenu() {}
 
 /** 查找算法 */
-void FuzzySearch(DoublyLinkList* dlList, char* En)
+void FuzzySearch(WordLinkList* wList, char* En)
 {
-    DoublyNode* currentNode = dlList->next;   //取出第一个结点
-    int length = dlList->length;  //链表长度
+    WordNode* currentNode = wList->next;   //取出第一个结点
+    int length = wList->length;  //链表长度
     int count = 0;
     int pos = 1;
     for(; pos <= length; pos++)
     {
         if(strstr(currentNode->word.En,En) != NULL) {
-            printf("你可能在找这个单词？%s %s%s，\n", currentNode->word.En,
+            printf("你可能在找这个单词？%s, %s\n", currentNode->word.En,
                    currentNode->word.Cn);
             count++;
         }
@@ -142,7 +137,7 @@ void FuzzySearch(DoublyLinkList* dlList, char* En)
     }
     if(count == 0)
     {
-        printf("没有找到这个单词\n");
+        printf("没有找到这个单词.\n");
         return;
     }
 }

@@ -8,20 +8,21 @@
 
 #include "List.h"
 
+// 账户类型 普通用户USER 管理员ADMIN
+#define USER 0
+#define ADMIN 1
+
 /*!
  * 载入中英单词词库
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  */
-void LoadDictionary(DoublyLinkList* dlList);
+void LoadDictionary(WordLinkList* wList);
 
 /*!
  * 载入账户信息库
- * @param dlList 链表头节点
+ * @param wList 链表头节点
  */
-void LoadAccountFile(DoublyLinkList* dlList) ;
-
-
-
+void LoadAccountFile(AccountLinkList* aList) ;
 
 /*!
  * 账户登录
@@ -34,9 +35,6 @@ void LoadAccountFile(DoublyLinkList* dlList) ;
  * @return 0 登陆失败
  */
 int LogIn(int type, char* accountID, char* password);
-
-/** 退出登录 */
-int quit();
 
 /*!
  * 账户注销
@@ -56,10 +54,10 @@ void InitialMenu();
 
 /*!
  * 读取用户输入的英文释义，展示其可能搜索的英文单词
- * @param dlList 链表头结点
+ * @param wList 链表头结点
  * @param En 模糊单词
  */
-void FuzzySearch(DoublyLinkList* dlList, char* En);
+void FuzzySearch(WordLinkList* wList, char* En);
 
 /*!
  * 退出程序，退出时会自动保存相关数据
