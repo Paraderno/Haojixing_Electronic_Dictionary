@@ -1,3 +1,0 @@
-D:/clion/Haojixing_Electronic_Dictionary-master/cmake-build-debug/CMakeFiles/Haojixing_Electronic_Dictionary.dir
-D:/clion/Haojixing_Electronic_Dictionary-master/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/clion/Haojixing_Electronic_Dictionary-master/cmake-build-debug/CMakeFiles/rebuild_cache.dir
