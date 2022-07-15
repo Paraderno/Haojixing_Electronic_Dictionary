@@ -10,7 +10,7 @@ void LoadWords(DoublyLinkList * dlList){
     Word word;
     int size=0;
     //打开文件
-    FILE *file=fopen("D:\\clion\\Haojixing_Electronic_Dictionary-master\\resource\\WordInformation.txt","r");
+    FILE *file=fopen("resource/WordInformation.txt","r");
     if(file==NULL)printf("找不到数据库！！！\n");
     else{
         //读入文件
@@ -73,7 +73,7 @@ void EnToCn(DoublyLinkList* dlList, char* En)
     }
 
     printf("单词 %s 中文释义为 %s\n",currentNode->word.En
-           ,currentNode->word.Cn);
+            ,currentNode->word.Cn);
 }
 
 
@@ -87,7 +87,7 @@ void CnToEn(DoublyLinkList* dlList, char* Cn)
     {
         if(strstr(currentNode->word.Cn,Cn) != NULL) {
             printf("中文释义为 %s  词性为 %s，\n", currentNode->word.Cn,
-                    currentNode->word.En);
+                   currentNode->word.En);
             count++;
         }
         currentNode = currentNode->next;
@@ -108,7 +108,7 @@ void FuzzySearch(DoublyLinkList* dlList, char* En)
     {
         if(strstr(currentNode->word.En,En) != NULL) {
             printf("你可能在找这个单词？%s %s%s，\n", currentNode->word.En,
-                    currentNode->word.Cn);
+                   currentNode->word.Cn);
             count++;
         }
         currentNode = currentNode->next;

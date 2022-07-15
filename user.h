@@ -1,32 +1,31 @@
 /*
  * Created by FallenGemini on 2022/7/13.
- * ÓÃ»§¹¦ÄÜÉùÃ÷
+ * ç”¨æˆ·åŠŸèƒ½å£°æ˜
  */
 
 #ifndef HAOJIXING_ELECTRONIC_DICTIONARY_USER_H
 #define HAOJIXING_ELECTRONIC_DICTIONARY_USER_H
-
 #include <stdio.h>
 
 /*!
- * ÓÃ»§×¢²á
- * @return ×¢²á³É¹¦·µ»Ø1£¬×¢²áÊ§°Ü·µ»Ø0
+ * ç”¨æˆ·æ³¨å†Œ
+ * @return æ³¨å†ŒæˆåŠŸè¿”å›1ï¼Œæ³¨å†Œå¤±è´¥è¿”å›0
  */
 int Register();
 
 /*!
- * ²¥·ÅÒôÀÖ
+ * æ’­æ”¾éŸ³ä¹
  */
 void music();
 
 /*!
- * ÊÕ²Øµ¥´Ê
- * @param sPtr ÎÄ¼ş
+ * æ”¶è—å•è¯
+ * @param sPtr æ–‡ä»¶
  */
 void Star(FILE *sPtr);
 
 /*!
- * ÏÔÊ¾ÊÕ²Øµ¥´Ê
+ * æ˜¾ç¤ºæ”¶è—å•è¯
  */
 void ShowStarCase();
 

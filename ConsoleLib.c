@@ -1,6 +1,5 @@
 #include "ConsoleLib.h"
 
-
 /*单位：秒*/
 void sleep_second(int time) {
 #if defined(__linux__)// Linux系统
@@ -20,9 +19,8 @@ void sleep_micro(int time) {
 }
 
 void SetTitle(const char* title)
-
 {
-    wchar_t wchar_title[255];
+    WCHAR wchar_title[255];
     memset(wchar_title, 0, sizeof(wchar_title));
     MultiByteToWideChar(CP_ACP, 0, title, strlen(title) + 1, wchar_title, sizeof(wchar_title) / sizeof(wchar_title[0]));
     SetConsoleTitle(wchar_title);

@@ -79,6 +79,12 @@ build CMakeFiles/Haojixing_Electronic_Dictionary.dir/List.c.obj: C_COMPILER__Hao
   OBJECT_DIR = CMakeFiles\Haojixing_Electronic_Dictionary.dir
   OBJECT_FILE_DIR = CMakeFiles\Haojixing_Electronic_Dictionary.dir
 
+build CMakeFiles/Haojixing_Electronic_Dictionary.dir/ConsoleLib.c.obj: C_COMPILER__Haojixing_Electronic_Dictionary_Debug D$:/Users/lijia/CLionProjects/Haojixing-Electronic-Dictionary/ConsoleLib.c || cmake_object_order_depends_target_Haojixing_Electronic_Dictionary
+  DEP_FILE = CMakeFiles\Haojixing_Electronic_Dictionary.dir\ConsoleLib.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = CMakeFiles\Haojixing_Electronic_Dictionary.dir
+  OBJECT_FILE_DIR = CMakeFiles\Haojixing_Electronic_Dictionary.dir
+
 build CMakeFiles/Haojixing_Electronic_Dictionary.dir/draw.c.obj: C_COMPILER__Haojixing_Electronic_Dictionary_Debug D$:/Users/lijia/CLionProjects/Haojixing-Electronic-Dictionary/draw.c || cmake_object_order_depends_target_Haojixing_Electronic_Dictionary
   DEP_FILE = CMakeFiles\Haojixing_Electronic_Dictionary.dir\draw.c.obj.d
   FLAGS = -g -std=gnu11
@@ -93,7 +99,7 @@ build CMakeFiles/Haojixing_Electronic_Dictionary.dir/draw.c.obj: C_COMPILER__Hao
 #############################################
 # Link the executable Haojixing_Electronic_Dictionary.exe
 
-build Haojixing_Electronic_Dictionary.exe: C_EXECUTABLE_LINKER__Haojixing_Electronic_Dictionary_Debug CMakeFiles/Haojixing_Electronic_Dictionary.dir/main.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/public.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/user.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/admin.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/List.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/draw.c.obj
+build Haojixing_Electronic_Dictionary.exe: C_EXECUTABLE_LINKER__Haojixing_Electronic_Dictionary_Debug CMakeFiles/Haojixing_Electronic_Dictionary.dir/main.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/public.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/user.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/admin.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/List.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/ConsoleLib.c.obj CMakeFiles/Haojixing_Electronic_Dictionary.dir/draw.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Haojixing_Electronic_Dictionary.dir

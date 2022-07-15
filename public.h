@@ -48,11 +48,11 @@ void Menu();
  */
 void Music(FILE* fPtr);
 
- /*!
-  * 读取用户输入的英文单词，展示其中文释义，当输入不存在的单词时会报错
-  * @param dlList 链表头结点
-  * @param word 所要查找的英文单词
-  */
+/*!
+ * 读取用户输入的英文单词，展示其中文释义，当输入不存在的单词时会报错
+ * @param dlList 链表头结点
+ * @param word 所要查找的英文单词
+ */
 void EnToCn(DoublyLinkList* dlList, char* word);
 
 /*!
@@ -62,6 +62,12 @@ void EnToCn(DoublyLinkList* dlList, char* word);
  */
 void CnToEn(DoublyLinkList* dlList, char* word);
 
+/*!
+ * 读取用户输入的英文释义，展示其可能搜索的英文单词
+ * @param dlList 链表头结点
+ * @param En 模糊单词
+ */
+void FuzzySearch(DoublyLinkList* dlList, char* En);
 /*!
  * 退出程序，退出时会自动保存相关数据
  * @param rPtr 文件

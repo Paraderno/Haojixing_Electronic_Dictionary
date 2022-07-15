@@ -1,6 +1,6 @@
 /*
  * Created by FallenGemini on 2022/7/13.
- * ¹ÜÀíÔ±¹¦ÄÜÉùÃ÷
+ * ç®¡ç†å‘˜åŠŸèƒ½å£°æ˜
  */
 #include "admin.h"
 

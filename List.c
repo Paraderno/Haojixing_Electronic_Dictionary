@@ -146,10 +146,10 @@ void PrintDoublyLinkList(DoublyLinkList* dlList)
     DoublyNode* currentNode = dlList->next;   //取出第一个结点
     int length = dlList->length - 1;  //链表长度
     printf("开始打印，共 %d 个单词：\n",length);
-    printf("     英文           中文\n");
+    printf("     英文               中文\n");
     for(int i = 0; i < length; i++)
     {
-        printf("%4d:%s\t%s\n",i+1,currentNode->word.En,currentNode->word.Cn);
+        printf("%4d、%-15s%-15s\n",i+1,currentNode->word.En,currentNode->word.Cn);
         currentNode = currentNode->next;
     }
 }
