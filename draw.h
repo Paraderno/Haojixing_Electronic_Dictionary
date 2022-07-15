@@ -1,5 +1,5 @@
 /*
- * Created by ç»«æ³¢çœŸç¾ä¸½ on 2022/7/14.
+ * Created by ç±²¨ÕæÃÀÀö on 2022/7/14.
  */
 #ifndef DICTIONARY_DRAW_H
 #define DICTIONARY_DRAW_H
@@ -8,7 +8,7 @@
 #include "ConsoleLib.h"
 
 /*!
- * ç»˜åˆ¶å¼€å§‹é¡µé¢
+ * »æÖÆ¿ªÊ¼Ò³Ãæ
  */
 void DrawTheMainMenu();
 void DrawTheFrame();

@@ -1,6 +1,6 @@
 /*
  * Created by FallenGemini on 2022/7/13.
- * ç®¡ç†å‘˜åŠŸèƒ½å£°æ˜
+ * ¹ÜÀíÔ±¹¦ÄÜÉùÃ÷
 */
 
 #ifndef HAOJIXING_ELECTRONIC_DICTIONARY_ADMIN_H
@@ -12,31 +12,31 @@
 #include "List.h"
 
 /*!
- * ç®¡ç†å‘˜è¾“å…¥éœ€è¦å¢æ·»çš„å•è¯ã€è¯æ€§ä¸ä¸­æ–‡é‡Šä¹‰,å‘é“¾è¡¨ä¸­å¢åŠ ä¸€ä¸ªå•è¯
- * @param dlList é“¾è¡¨å¤´ç»“ç‚¹
- * @param En è‹±æ–‡å•è¯
- * @param attribute è¯æ€§
- * @param Cn ä¸­æ–‡é‡Šä¹‰
+ * ¹ÜÀíÔ±ÊäÈëĞèÒªÔöÌíµÄµ¥´Ê¡¢´ÊĞÔÓëÖĞÎÄÊÍÒå,ÏòÁ´±íÖĞÔö¼ÓÒ»¸öµ¥´Ê
+ * @param dlList Á´±íÍ·½áµã
+ * @param En Ó¢ÎÄµ¥´Ê
+ * @param attribute ´ÊĞÔ
+ * @param Cn ÖĞÎÄÊÍÒå
  */
-void Add(DoublyLinkList * dlList, char* En, char* attribute, char* Cn);
+void Add(DoublyLinkList * dlList, char* En, char* Cn);
 
 /*!
- * ç®¡ç†å‘˜è¾“å…¥éœ€è¦åˆ é™¤çš„å•è¯ï¼Œæ–‡ä»¶ä¸­å¯¹åº”çš„å•è¯å°†è¢«åˆ é™¤ï¼Œè‹¥è¾“å…¥ä¸å­˜åœ¨çš„å•è¯å°†ä¼šæŠ¥é”™
- * @param dlList é“¾è¡¨å¤´ç»“ç‚¹
- * @param En è‹±æ–‡å•è¯
- * @param attribute è¯æ€§
- * @param Cn ä¸­æ–‡é‡Šä¹‰
+ * ¹ÜÀíÔ±ÊäÈëĞèÒªÉ¾³ıµÄµ¥´Ê£¬ÎÄ¼şÖĞ¶ÔÓ¦µÄµ¥´Ê½«±»É¾³ı£¬ÈôÊäÈë²»´æÔÚµÄµ¥´Ê½«»á±¨´í
+ * @param dlList Á´±íÍ·½áµã
+ * @param En Ó¢ÎÄµ¥´Ê
+ * @param attribute ´ÊĞÔ
+ * @param Cn ÖĞÎÄÊÍÒå
  */
-void Delete(DoublyLinkList * dlList, char* En, char* attribute, char* Cn);
+void Delete(DoublyLinkList * dlList, char* En,  char* Cn);
 
 /*!
- * ç®¡ç†å‘˜è¾“å…¥éœ€è¦ä¿®æ”¹å•è¯çš„ä¸‹æ ‡ï¼Œä»¥åŠä¿®æ”¹åçš„å•è¯ã€è¯æ€§ã€ä¸­æ–‡ã€‚è‹¥è¾“å…¥ä¸å­˜åœ¨çš„å•è¯å°†ä¼šæŠ¥é”™
- * @param dlList é“¾è¡¨å¤´ç»“ç‚¹
- * @param pos å¾…ä¿®æ”¹å•è¯çš„ä¸‹æ ‡
- * @param En è‹±æ–‡å•è¯
- * @param attribute è¯æ€§
- * @param Cn ä¸­æ–‡é‡Šä¹‰
+ * ¹ÜÀíÔ±ÊäÈëĞèÒªĞŞ¸Äµ¥´ÊµÄÏÂ±ê£¬ÒÔ¼°ĞŞ¸ÄºóµÄµ¥´Ê¡¢´ÊĞÔ¡¢ÖĞÎÄ¡£ÈôÊäÈë²»´æÔÚµÄµ¥´Ê½«»á±¨´í
+ * @param dlList Á´±íÍ·½áµã
+ * @param pos ´ıĞŞ¸Äµ¥´ÊµÄÏÂ±ê
+ * @param En Ó¢ÎÄµ¥´Ê
+ * @param attribute ´ÊĞÔ
+ * @param Cn ÖĞÎÄÊÍÒå
  */
-void Modify(DoublyLinkList * dlList, int pos, char* En, char* attribute, char* Cn);
+void Modify(DoublyLinkList * dlList, int pos, char* En, char* Cn);
 
 #endif //HAOJIXING_ELECTRONIC_DICTIONARY_ADMIN_H

@@ -10,7 +10,6 @@
 int equal(Word word1, Word word2) {
     int flag = TRUE;
     if(strcmp(word1.En,word2.En) != 0) flag = FALSE;
-    if(strcmp(word1.attribute,word2.attribute) != 0) flag = FALSE;
     if(strcmp(word1.Cn,word2.Cn) != 0) flag = FALSE;
     return flag;
 }
@@ -42,7 +41,6 @@ void InsertDoublyLinkList(DoublyLinkList* dlList, int pos, Word word) {
         currentNode->prev = node;
         node->next = currentNode;
         dlList->next = node;
-        printf("插入成功\n");
     }
     else    //前缀结点不为空
     {
@@ -51,7 +49,6 @@ void InsertDoublyLinkList(DoublyLinkList* dlList, int pos, Word word) {
         node->prev = preNode;
         node->next = currentNode;
         currentNode->prev = node;
-        printf("插入成功\n");
     }
 }
 
@@ -140,8 +137,8 @@ void GetDoublyLinkListElement(DoublyLinkList* dlList, int pos)
     printf("查询成功\n");
     for(int i = 1; i < pos; i++)
         currentNode = currentNode->next;
-    printf("     英文        词性       中文\n");
-    printf("     %s\t   %s     %s\n",currentNode->word.En,currentNode->word.attribute,currentNode->word.Cn);
+    printf("     英文            中文\n");
+    printf("     %s\t      %s\n",currentNode->word.En,currentNode->word.Cn);
 }
 
 void PrintDoublyLinkList(DoublyLinkList* dlList)
@@ -149,10 +146,10 @@ void PrintDoublyLinkList(DoublyLinkList* dlList)
     DoublyNode* currentNode = dlList->next;   //取出第一个结点
     int length = dlList->length - 1;  //链表长度
     printf("开始打印，共 %d 个单词：\n",length);
-    printf("     英文        词性       中文\n");
+    printf("     英文           中文\n");
     for(int i = 0; i < length; i++)
     {
-        printf("%4d:%s\t%s\t%s\n",i+1,currentNode->word.En,currentNode->word.attribute,currentNode->word.Cn);
+        printf("%4d:%s\t%s\n",i+1,currentNode->word.En,currentNode->word.Cn);
         currentNode = currentNode->next;
     }
 }

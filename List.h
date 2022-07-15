@@ -7,7 +7,7 @@
 #define HAOJIXING_ELECTRONIC_DICTIONARY_LIST_H
 
 #include <string.h>
-#define TRUE 1;
+#define TRUE 1
 #define FALSE 0
 
 /*!
@@ -16,7 +16,6 @@
 typedef struct word
 {
     char En[50];
-    char attribute[10];
     char Cn[50];
 }Word;
 
