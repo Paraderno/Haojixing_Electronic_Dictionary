@@ -3,124 +3,151 @@
  * 公共功能实现
  */
 
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <malloc.h>
 #include "public.h"
-void LoadWords(DoublyLinkList* dlList) {
+
+/** 载入词库 */
+void LoadDictionary (DoublyLinkList* dlList) {
     Word word;
-    int size = 0;
-    //打开文件
-    FILE* file = fopen("resource/WordInformation.txt", "r");
-    if (file == NULL)printf("找不到数据库！！！\n");
-    else {
-        //读入文件
-        while (!feof(file))
-        {
+    int size=0;
+
+    // 打开文件 ("dFile" is short for "dictionary file")
+    FILE* dFile = fopen("resource\\Dictionary.txt", "r");
+
+    if ( dFile == NULL ) {
+        printf("词库文件丢失！！！\n");
+    } else {
+        // 读入链表
+        while( !feof(dFile) ) {
             size++;
-            fscanf(file, "%s %s", word.En, word.Cn);
+            fscanf(dFile, "%s %s", word.En, word.Cn);
+            // 将词库数据写入空链表
             InsertDoublyLinkList(dlList, size, word);
         }
-    }
-    printf("加载数据成功\n");
-    fclose(file);
-}
-void SaveWords(DoublyLinkList* dlList) {
-    FILE* file = fopen("D:\\clion\\Haojixing_Electronic_Dictionary-master\\resource\\SaveInformation.txt", "w");
-    DoublyNode* head = dlList->next;
-    for (int i = 0; i < dlList->length; ++i) {
-        fprintf(file, "%s %s\n", head->word.En, head->word.Cn);
-        head = head->next;
-    }
-    printf("保存成功\n");
-    fclose(file);
-}
-void LogIn(char* account, char* password, FILE* aPtr)
-{
-
-}
-
-void LogOut(char* account, char* password, FILE* aPtr)
-{
-
-}
-
-void Menu()
-{
-
-}
-
-
-void Music(FILE* fPtr)
-{
-
-}
-
-void EnToCn(DoublyLinkList* dlList, char* En)
-{
-    DoublyNode* currentNode = dlList->next;   //取出第一个结点
-    int length = dlList->length;  //链表长度
-
-    int pos = 1;
-    for (; pos <= length; pos++)
-    {
-        if (strcmp(currentNode->word.En, En) == 0) break;
-        currentNode = currentNode->next;
-    }
-    if (pos == length)
-    {
-        printf("没有找到这个单词\n");
-        return;
+        printf("加载数据成功.\n");
     }
 
-    printf("单词 %s 中文释义为 %s\n", currentNode->word.En
-        , currentNode->word.Cn);
+    fclose(dFile);
 }
 
+/** 载入账户信息数据 */
+void LoadAccountFile (DoublyLinkList* dlList) {
+    Account account;
+    int size = 0;
 
-void CnToEn(DoublyLinkList* dlList, char* Cn)
-{
-    DoublyNode* currentNode = dlList->next;   //取出第一个结点
-    int length = dlList->length;  //链表长度
-    int count = 0;
-    int pos = 1;
-    for (; pos <= length; pos++)
-    {
-        if (strstr(currentNode->word.Cn, Cn) != NULL) {
-            printf("中文释义为 %s  词性为 %s，\n", currentNode->word.Cn,
-                currentNode->word.En);
-            count++;
+    // 打开文件 ("aFile" is short for "account file")
+    FILE* aFile = fopen("resource\\Account.txt", "r");
+
+    if (aFile == NULL) {
+        printf("账户信息文件丢失！！！");
+    } else {
+        // 读入链表
+        while( !feof(aFile) ) {
+            size++;
+            fscanf(aFile, "%s %s %d", account.ID, account.password, &account.type);
+            // 将账户信息数据写入空链表
+            InsertAccountLinkList(dlList, size, account);
         }
-        currentNode = currentNode->next;
+        printf("加载数据成功.\n");
     }
-    if (count == 0)
-    {
-        printf("没有找到这个单词\n");
-        return;
-    }
+
+    fclose(aFile);
 }
+
+
+/** 登录账户 */
+int LogIn(int type, char* accountID, char* password)
+{
+    Account account;  // 存放读入的账户数据
+
+    /*
+    printf("请输入账户类型（1管理员 2普通用户）：");
+    scanf("%d", &account.type);
+    printf("请输入您的用户ID：");
+    scanf("%s", account.ID);
+    printf("请输入您的用户密码：");
+    scanf("%s", account.password);
+     */
+
+    DoublyLinkList* dlLinkList;
+    LoadAccountFile(dlLinkList);
+
+    AccountNode* currNode = dlLinkList->next;
+    int countEqual;
+    for (countEqual = 0; currNode ; ) {
+        isAccountEqual(account, currNode->account) ? countEqual++ : 0;
+    }
+
+    // countEqual 值只能为 1 或 0；
+    // 为 1 ： 查找到相符账户，登录成功
+    // 为 0 ： 未查找到相符账户，登陆失败
+    return countEqual;
+}
+
+/** 退出登录 */
+int quit();
+
+/** 注销用户 */
+int LogOut(int type, char* accountID, char* password)
+{
+    Account account;  // 存放读入的账户数据
+
+    /*
+    printf("请输入当前账户类型（1管理员 2普通用户）：");
+    scanf("%d", &account.type);
+    printf("请输入当前使用的的账户ID：");
+    scanf("%s", account.ID);
+    printf("请输入当前使用的的账户密码：");
+    scanf("%s", account.password);
+    */
+
+    DoublyLinkList* dlLinkList;
+    LoadAccountFile(dlLinkList);
+
+    AccountNode* currNode = dlLinkList->next;
+    int countEqual = 0;
+    for (int i = 1; currNode ; i++) {
+        if (isAccountEqual(account, currNode->account)) {
+            DeleteDoublyLinkListByPos(dlLinkList, i);
+            countEqual++;
+        }
+    }
+    SaveAccountData(dlLinkList);
+
+    return countEqual;
+}
+
+/** 初始菜单 */
+void InitialMenu()
+{
+
+}
+
+/** 查找算法 */
 void FuzzySearch(DoublyLinkList* dlList, char* En)
 {
     DoublyNode* currentNode = dlList->next;   //取出第一个结点
     int length = dlList->length;  //链表长度
     int count = 0;
     int pos = 1;
-    for (; pos <= length; pos++)
+    for(; pos <= length; pos++)
     {
-        if (strstr(currentNode->word.En, En) != NULL) {
+        if(strstr(currentNode->word.En,En) != NULL) {
             printf("你可能在找这个单词？%s %s%s，\n", currentNode->word.En,
-                currentNode->word.Cn);
+                   currentNode->word.Cn);
             count++;
         }
         currentNode = currentNode->next;
     }
-    if (count == 0)
+    if(count == 0)
     {
         printf("没有找到这个单词\n");
         return;
     }
 }
 
+/** 退出程序 */
 void Exit(FILE* rPtr)
 {
 
