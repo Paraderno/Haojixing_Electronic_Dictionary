@@ -117,9 +117,9 @@ int main() {
         }
         if (opt == 3)
         {
-            SetPosition(20, 20);
+            SetPosition(33, 20);
             printf("欢迎再次使用\n");
-            SetPosition(20, 25);
+            //SetPosition(33, 25);
             break;
         }
         if (opt == 4)
