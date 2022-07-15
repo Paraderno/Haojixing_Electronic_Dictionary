@@ -1,0 +1,3 @@
+D:/Users/lijia/CLionProjects/Haojixing-Electronic-Dictionary/cmake-build-debug/CMakeFiles/Haojixing_Electronic_Dictionary.dir
+D:/Users/lijia/CLionProjects/Haojixing-Electronic-Dictionary/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Users/lijia/CLionProjects/Haojixing-Electronic-Dictionary/cmake-build-debug/CMakeFiles/rebuild_cache.dir
