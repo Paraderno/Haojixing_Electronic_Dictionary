@@ -3,33 +3,34 @@
  * 公共功能实现
  */
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <malloc.h>
 #include "public.h"
-void LoadWords(DoublyLinkList * dlList){
+void LoadWords(DoublyLinkList* dlList) {
     Word word;
-    int size=0;
+    int size = 0;
     //打开文件
-    FILE *file=fopen("resource/WordInformation.txt","r");
-    if(file==NULL)printf("找不到数据库！！！\n");
-    else{
+    FILE* file = fopen("resource/WordInformation.txt", "r");
+    if (file == NULL)printf("找不到数据库！！！\n");
+    else {
         //读入文件
-        while(!feof(file))
+        while (!feof(file))
         {
             size++;
-            fscanf(file,"%s %s" ,word.En,word.Cn);
-            InsertDoublyLinkList(dlList,size,word);
+            fscanf(file, "%s %s", word.En, word.Cn);
+            InsertDoublyLinkList(dlList, size, word);
         }
     }
     printf("加载数据成功\n");
     fclose(file);
 }
-void SaveWords(DoublyLinkList *dlList){
-    FILE *file= fopen("D:\\clion\\Haojixing_Electronic_Dictionary-master\\resource\\SaveInformation.txt","w");
-    DoublyNode *head=dlList->next;
-    for (int i = 0; i < dlList->length; ++i){
-        fprintf(file,"%s %s\n",head->word.En,head->word.Cn);
-        head=head->next;
+void SaveWords(DoublyLinkList* dlList) {
+    FILE* file = fopen("D:\\clion\\Haojixing_Electronic_Dictionary-master\\resource\\SaveInformation.txt", "w");
+    DoublyNode* head = dlList->next;
+    for (int i = 0; i < dlList->length; ++i) {
+        fprintf(file, "%s %s\n", head->word.En, head->word.Cn);
+        head = head->next;
     }
     printf("保存成功\n");
     fclose(file);
@@ -39,7 +40,7 @@ void LogIn(char* account, char* password, FILE* aPtr)
 
 }
 
-void LogOut(char* account,char* password, FILE* aPtr)
+void LogOut(char* account, char* password, FILE* aPtr)
 {
 
 }
@@ -61,19 +62,19 @@ void EnToCn(DoublyLinkList* dlList, char* En)
     int length = dlList->length;  //链表长度
 
     int pos = 1;
-    for(; pos <= length; pos++)
+    for (; pos <= length; pos++)
     {
-        if(strcmp(currentNode->word.En,En) == 0) break;
+        if (strcmp(currentNode->word.En, En) == 0) break;
         currentNode = currentNode->next;
     }
-    if(pos == length)
+    if (pos == length)
     {
         printf("没有找到这个单词\n");
         return;
     }
 
-    printf("单词 %s 中文释义为 %s\n",currentNode->word.En
-            ,currentNode->word.Cn);
+    printf("单词 %s 中文释义为 %s\n", currentNode->word.En
+        , currentNode->word.Cn);
 }
 
 
@@ -83,16 +84,16 @@ void CnToEn(DoublyLinkList* dlList, char* Cn)
     int length = dlList->length;  //链表长度
     int count = 0;
     int pos = 1;
-    for(; pos <= length; pos++)
+    for (; pos <= length; pos++)
     {
-        if(strstr(currentNode->word.Cn,Cn) != NULL) {
+        if (strstr(currentNode->word.Cn, Cn) != NULL) {
             printf("中文释义为 %s  词性为 %s，\n", currentNode->word.Cn,
-                   currentNode->word.En);
+                currentNode->word.En);
             count++;
         }
         currentNode = currentNode->next;
     }
-    if(count == 0)
+    if (count == 0)
     {
         printf("没有找到这个单词\n");
         return;
@@ -104,16 +105,16 @@ void FuzzySearch(DoublyLinkList* dlList, char* En)
     int length = dlList->length;  //链表长度
     int count = 0;
     int pos = 1;
-    for(; pos <= length; pos++)
+    for (; pos <= length; pos++)
     {
-        if(strstr(currentNode->word.En,En) != NULL) {
+        if (strstr(currentNode->word.En, En) != NULL) {
             printf("你可能在找这个单词？%s %s%s，\n", currentNode->word.En,
-                   currentNode->word.Cn);
+                currentNode->word.Cn);
             count++;
         }
         currentNode = currentNode->next;
     }
-    if(count == 0)
+    if (count == 0)
     {
         printf("没有找到这个单词\n");
         return;

@@ -1,15 +1,16 @@
+#pragma once
 #ifndef CONSOLELIB_H_INCLUDED
 #define CONSOLELIB_H_INCLUDED
-//#pragma once
 #pragma warning(disable : 4996)
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #if defined(__linux__)
-		#include<unistd.h>// Linux系统
-	#elif defined(_WIN32)
-		#include<windows.h>// Windows系统
+#include<unistd.h>// Linux系统
+#elif defined(_WIN32)
+#include<windows.h>// Windows系统
 #endif
 
 /** 休眠（毫秒） */
@@ -17,7 +18,7 @@ void sleep_micro(int time);
 /** 休眠（秒） */
 void sleep_second(int time);
 
- /* 设置控制台窗口标题 */
+/* 设置控制台窗口标题 */
 //void SetTitle(const WCHAR* title);
 void SetTitle(const char* title);
 /* 0-黑色, 1-蓝色,   2-绿色,      3-浅绿色,     4-红色,   5-紫色,   6-黄色,   7-白色,

@@ -1,3 +1,4 @@
+#pragma once
 /*
  * Created by FallenGemini on 2022/7/14.
  * 链表及相关函数
@@ -10,9 +11,9 @@
 #define TRUE 1
 #define FALSE 0
 
-/*!
- * 记录单词，包含英文、词性与中文
- */
+ /*!
+  * 记录单词，包含英文、词性与中文
+  */
 typedef struct word
 {
     char En[50];

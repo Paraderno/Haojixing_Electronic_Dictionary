@@ -1,31 +1,32 @@
+#pragma once
 /*
  * Created by FallenGemini on 2022/7/13.
- * ç”¨æˆ·åŠŸèƒ½å£°æ˜
+ * ÓÃ»§¹¦ÄÜÉùÃ÷
  */
 
 #ifndef HAOJIXING_ELECTRONIC_DICTIONARY_USER_H
 #define HAOJIXING_ELECTRONIC_DICTIONARY_USER_H
 #include <stdio.h>
 
-/*!
- * ç”¨æˆ·æ³¨å†Œ
- * @return æ³¨å†ŒæˆåŠŸè¿”å›1ï¼Œæ³¨å†Œå¤±è´¥è¿”å›0
- */
+ /*!
+  * ÓÃ»§×¢²á
+  * @return ×¢²á³É¹¦·µ»Ø1£¬×¢²áÊ§°Ü·µ»Ø0
+  */
 int Register();
 
 /*!
- * æ’­æ”¾éŸ³ä¹
+ * ²¥·ÅÒôÀÖ
  */
 void music();
 
 /*!
- * æ”¶è—å•è¯
- * @param sPtr æ–‡ä»¶
+ * ÊÕ²Øµ¥´Ê
+ * @param sPtr ÎÄ¼ş
  */
-void Star(FILE *sPtr);
+void Star(FILE* sPtr);
 
 /*!
- * æ˜¾ç¤ºæ”¶è—å•è¯
+ * ÏÔÊ¾ÊÕ²Øµ¥´Ê
  */
 void ShowStarCase();
 

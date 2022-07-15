@@ -1,6 +1,6 @@
 /*
  * Created by FallenGemini on 2022/7/13.
- * 鐢ㄦ埛鍔熻兘瀹炵幇
+ * 用户功能实现
  */
 #include "user.h"
 
@@ -8,6 +8,6 @@ int Register();
 
 void Music();
 
-void Star(FILE *sPtr);
+void Star(FILE* sPtr);
 
 void ShowStarCase();

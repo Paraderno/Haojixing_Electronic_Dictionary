@@ -1,3 +1,4 @@
+#pragma once
 /*
  * Created by FallenGemini on 2022/7/13.
  * 公共功能声明
@@ -6,18 +7,19 @@
 #ifndef HAOJIXING_ELECTRONIC_DICTIONARY_PUBLIC_H
 #define HAOJIXING_ELECTRONIC_DICTIONARY_PUBLIC_H
 
+#define _CRT_SECURE_NO_WARNINGS
 #include "List.h"
 
-/*!
- * 把文本词库信息输入到程序中
- * @param WordListHead 链表头结点
- */
-void LoadWords(DoublyLinkList *dlList);
+ /*!
+  * 把文本词库信息输入到程序中
+  * @param WordListHead 链表头结点
+  */
+void LoadWords(DoublyLinkList* dlList);
 
 /*!
  * 把文本词库信息输入到程序中
  */
-void SaveWords(DoublyLinkList *dlList);
+void SaveWords(DoublyLinkList* dlList);
 
 /*!
  * 账户登录
@@ -35,7 +37,7 @@ void LogIn(char* account, char* password, FILE* aPtr);
  * @param password 密码
  * @param aPtr 文件对比
  */
-void LogOut(char* account,char* password, FILE* aPtr);
+void LogOut(char* account, char* password, FILE* aPtr);
 
 /*!
  * 展示功能菜单
