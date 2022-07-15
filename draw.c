@@ -55,6 +55,7 @@ void DrawChangeableFrame(int sum)
 
 void DrawInnerFrame()
 {
+    SetColor(2,0);
     SetPosition(8,6);
     for (int i = 0; i < 65; ++i) {
         printf("-");
@@ -74,6 +75,7 @@ void DrawInnerFrame()
 
 void DrawMessageFrame()
 {
+    SetColor(2,0);
     SetPosition(22,8);
     for (int i = 0; i < 33; ++i) {
         printf("-");
@@ -93,6 +95,7 @@ void DrawMessageFrame()
 
 void DrawDividingLine()
 {
+    SetColor(2,0);
     SetPosition(1,4);
     for (int i = 0; i < 78; ++i) {
         printf("-");
@@ -105,6 +108,7 @@ void DrawDividingLine()
 
 void DrawChangeableDividingLine(int sum)
 {
+    SetColor(2,0);
     SetPosition(1,4);
     for (int i = 0; i < 78; ++i) {
         printf("-");
@@ -273,22 +277,26 @@ void DrawDeletePage()
 
 void DrawSuccessMessage(const char* message)
 {
+    DrawTheFrame();
     char text[50]="！！*";
     strcat(text,message);
     strcat(text,"撹孔*！！");
     DrawMessageFrame();
     SetPosition(30,12);
     printf("%s",text);
-    sleep_second(2);
+    getchar();
+    system("cls");
 }
 
 void DrawFailMessage(const char* message)
 {
+    DrawTheFrame();
     char text[50]="！！*";
     strcat(text,message);
     strcat(text,"払移*！！");
     DrawMessageFrame();
     SetPosition(30,12);
     printf("%s",text);
-    sleep_second(2);
+    getchar();
+    system("cls");
 }
