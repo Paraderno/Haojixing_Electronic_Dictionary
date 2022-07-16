@@ -36,7 +36,7 @@ void EnToCn(WordLinkList* wList, char* En)
         return;
     }
 
-    printf("单词 %s 中文释义为 %s\n", currentNode->word.En
+    printf("%-10s%-10s\n", currentNode->word.En
         , currentNode->word.Cn);
 }
 
@@ -47,11 +47,14 @@ void CnToEn(WordLinkList* wList, char* Cn)
     int length = wList->length;  //链表长度
     int count = 0;
     int pos = 1;
+    int X = 5, Y = 10;
     for (; pos <= length; pos++)
     {
         if (strstr(currentNode->word.Cn, Cn) != NULL) {
-            printf("中文释义为 %s  词性为 %s，\n", currentNode->word.Cn,
-                currentNode->word.En);
+            SetPosition(X, Y);
+            printf("%-15s%-15s\n",currentNode->word.En
+                , currentNode->word.Cn);
+            Y++;
             count++;
         }
         currentNode = currentNode->next;

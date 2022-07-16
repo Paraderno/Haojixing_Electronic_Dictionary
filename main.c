@@ -91,6 +91,9 @@ int main() {
     WordListHead->next = WordListTail;
     LoadDictionary(WordListHead);
 
+    //PrintWordLin/*kList(WordListHead);
+    //return 0;*/
+
     AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
     AccountListTail->next = NULL;
     AccountListTail->prev = NULL;
@@ -107,7 +110,7 @@ int main() {
     //  test2(WordListHead);
     //  test3(WordListHead);
 
-    int opt,now;
+    int opt,now,TYPE = 0;
     DrawTheMainMenu();
     SetPosition(35, 16);
     scanf("%d", &opt);
@@ -176,9 +179,9 @@ int main() {
             system("cls");
             DrawRegisterPage();
             Account account;
-            SetPosition(30, 10);
+            SetPosition(35, 10);
             scanf("%s", account.ID);
-            SetPosition(30, 15);
+            SetPosition(35, 15);
             scanf("%s", account.password);
             // 账户注册
             if (Register(AccountListHead, account.ID, account.password) == 1)
@@ -199,8 +202,7 @@ int main() {
         {
             SetPosition(33, 20);
             printf("欢迎再次使用\n");
-            sleep_second(2);
-            //SetPosition(33, 25);
+            sleep_second(1);
             break;
         }
         if (opt == 4)
@@ -214,7 +216,6 @@ int main() {
             scanf("%s", account.ID);
             SetPosition(35, 15);
             scanf("%s", account.password);
-            // 账户登录，通过函数判定进入哪一个界面
             int count = 0;
             count = LogOut(AccountListHead, account.type, account.ID, account.password);
             if (count > 1)
@@ -235,6 +236,7 @@ int main() {
         {
             system("cls");
             DrawUserMenu();
+            TYPE = 0;
             SetPosition(35, 17);
             int choice = 0;
             scanf("%d", &choice);
@@ -264,7 +266,8 @@ int main() {
         {
             system("cls");
             DrawAdminMenu();
-            SetPosition(30, 17);
+            TYPE = 1;
+            SetPosition(40, 17);
             int choice = 0;
             scanf("%d", &choice);
             switch (choice)
@@ -285,7 +288,7 @@ int main() {
                     now = 13;
                     break;
                 default:
-                    now = 0;
+                    now = 6;
                     break;
             }
         }
@@ -293,35 +296,45 @@ int main() {
         {
             system("cls");
             DrawFindEn();
-            SetPosition(20, 2);
+            SetPosition(25, 2);
             char s[50];
             scanf("%s", s);
-            SetPosition(5, 10);
+            
             CnToEn(WordListHead, s);
-            SetPosition(5, 23);
+            SetPosition(25, 23);
             int choice = 0;
             scanf("%d", &choice);
             if (choice == 1)
-                now = 5;
-            else now = 0;
+            {
+                now = 0;
+            }
+            else
+            {
+                if (TYPE == 0) now = 5;
+                else now = 6;
+            }
         }
         if (opt == 8)
         {
             system("cls");
             DrawFindCn();
-            SetPosition(20, 2);
+            SetPosition(25, 2);
             char s[50];
             scanf("%s", s);
             SetPosition(5, 10);
             EnToCn(WordListHead, s);
-            SetPosition(5, 23);
+            SetPosition(25, 23);
             int choice = 0;
             scanf("%d", &choice);
             if (choice == 1)
             {
-                now = 5;
+                now = 0;
             }
-            else now = 0;
+            else
+            {
+                if (TYPE == 0) now = 5;
+                else now = 6;
+            }
         }
         if (opt == 9)
         {

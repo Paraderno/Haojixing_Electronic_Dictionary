@@ -1,4 +1,6 @@
-﻿  admin.c
-F:\code\Project\repo\Paraderno\Haojixing_Electronic_Dictionary\admin.c(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+﻿  main.c
 F:\code\Project\repo\Paraderno\Haojixing_Electronic_Dictionary\admin.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+F:\code\Project\repo\Paraderno\Haojixing_Electronic_Dictionary\main.c(187,41): warning C4133: “函数”: 从“AccountLinkList *”到“char *”的类型不兼容
+F:\code\Project\repo\Paraderno\Haojixing_Electronic_Dictionary\main.c(187,62): warning C4020: “Register”: 实参太多
+F:\code\Project\repo\Paraderno\Haojixing_Electronic_Dictionary\main.c(211,13): warning C4013: “DrawLogOutPage”未定义；假设外部返回 int
   Haojixing_Electronic_Dictionary.vcxproj -> F:\code\Project\repo\Paraderno\Haojixing_Electronic_Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
