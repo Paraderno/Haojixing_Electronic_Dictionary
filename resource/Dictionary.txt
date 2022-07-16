@@ -4475,7 +4475,7 @@ worthy a.有价值的；值得的
 would aux.v.将；愿；总是
 wound n.创伤，伤vt.使受伤
 wrap vt.裹，包，捆n.披肩
-X-ray n.X射线，X光抛弃
+X-ray n.X射线，X光
 yard n.院子，庭院；场地
 yard n.码
 yawn vi.打呵欠n.呵欠
