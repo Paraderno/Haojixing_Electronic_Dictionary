@@ -97,7 +97,7 @@ void InsertAccountLinkList(AccountLinkList* aList, int pos, Account account){
     }
     else    //前缀结点不为空
     {
-        WordNode* preNode = currentNode->prev;
+        AccountNode* preNode = currentNode->prev;
         preNode->next = node;
         node->prev = preNode;
         node->next = currentNode;
@@ -128,7 +128,7 @@ void DeleteWordLinkListByPos(WordLinkList* wList, int pos)
     if(currentNode->prev == NULL)    //前缀结点为空
     {
         wList->next = currentNode->next;
-        (currentNode->next)->prev = NULL;
+        currentNode->next->prev = NULL;
         printf("删除成功\n");
     }
     else    //前缀结点不为空
@@ -198,8 +198,8 @@ void DeleteAccountData(AccountLinkList* aList, Account account) {
     }
     else    //前缀结点不为空
     {
-        WordNode* preNode = currentNode->prev;
-        WordNode* nxtNode = currentNode->next;
+        AccountNode* preNode = currentNode->prev;
+        AccountNode* nxtNode = currentNode->next;
         preNode->next = nxtNode;
         nxtNode->prev = preNode;
         printf("删除成功\n");

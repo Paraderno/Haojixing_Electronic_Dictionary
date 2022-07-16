@@ -39,8 +39,8 @@ typedef struct account{
 typedef struct wordNode
 {
     Word word;
-    struct WordNode* prev;   //指向前缀结点
-    struct WordNode* next;   //指向后继结点
+    struct wordNode* prev;   //指向前缀结点
+    struct wordNode* next;   //指向后继结点
 }WordNode;
 
 /*!
@@ -50,8 +50,8 @@ typedef struct wordNode
 typedef struct accountNode
 {
     Account account;
-    struct WordNode* prev;   //指向前缀结点
-    struct WordNode* next;   //指向后继结点
+    struct accountNode* prev;   //指向前缀结点
+    struct accountNode* next;   //指向后继结点
 }AccountNode;
 
 /** 双向链表头结点 */

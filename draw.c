@@ -198,7 +198,7 @@ void DrawLogInPage()
     printf("«Î ‰»Î√‹¬Î£∫");
 }
 
-void DrawFindEn(DoublyLinkList* WordListHead)
+void DrawFindEn(WordLinkList* WordListHead)
 {
     DrawTheFrame();
     SetPosition(5, 2);
@@ -216,7 +216,7 @@ void DrawFindEn(DoublyLinkList* WordListHead)
 
 }
 
-void DrawFindCn(DoublyLinkList* WordListHead)
+void DrawFindCn(WordLinkList* WordListHead)
 {
     DrawTheFrame();
     SetPosition(5, 2);

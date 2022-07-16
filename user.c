@@ -6,10 +6,22 @@
 #include "public.h"
 #include "admin.h"
 #include "List.h"
+#pragma warning(disable:4996)
 
 int Register(char* accountID, char* password) {
+    AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
+    AccountListTail->next = NULL;
+    AccountListTail->prev = NULL;
+
+    /*!
+     * 双向链表的头结点
+     */
+    AccountLinkList* AccountListHead = (AccountLinkList*)malloc(sizeof(AccountLinkList));
+    AccountListHead->length = 1;
+    AccountListHead->next = AccountListTail;
+
     Account account;
-    AccountLinkList* aList;
+    AccountLinkList* aList = AccountListHead;
 
     account.type = USER;
     strcpy(account.ID, accountID);

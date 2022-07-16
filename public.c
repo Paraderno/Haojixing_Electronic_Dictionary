@@ -7,6 +7,7 @@
 #include <malloc.h>
 #include "public.h"
 #include "admin.h"
+#pragma warning(disable:4996)
 
 /** 载入词库 */
 void LoadDictionary (WordLinkList* wList) {
@@ -61,6 +62,9 @@ void LoadAccountFile (AccountLinkList* aList) {
 int LogIn(int type, char* accountID, char* password)
 {
     Account account;  // 存放读入的账户数据
+    account.type = type;
+    strcpy(account.ID, accountID);
+    strcpy(account.password, password);
 
     /*
     printf("请输入账户类型（1管理员 2普通用户）：");
@@ -71,7 +75,19 @@ int LogIn(int type, char* accountID, char* password)
     scanf("%s", account.password);
      */
 
-    AccountLinkList* aList;
+    AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
+    AccountListTail->next = NULL;
+    AccountListTail->prev = NULL;
+
+    /*!
+     * 双向链表的头结点
+     */
+    AccountLinkList* AccountListHead = (AccountLinkList*)malloc(sizeof(AccountLinkList));
+    AccountListHead->length = 1;
+    AccountListHead->next = AccountListTail;
+
+    AccountLinkList* aList = AccountListHead;
+
     LoadAccountFile(aList);
 
     AccountNode* currNode = aList->next;
@@ -90,6 +106,9 @@ int LogIn(int type, char* accountID, char* password)
 int LogOut(int type, char* accountID, char* password)
 {
     Account account;  // 存放读入的账户数据
+    account.type = type;
+    strcpy(account.ID, accountID);
+    strcpy(account.password, password);
 
     /*
     printf("请输入当前账户类型（1管理员 2普通用户）：");
@@ -100,7 +119,19 @@ int LogOut(int type, char* accountID, char* password)
     scanf("%s", account.password);
     */
 
-    AccountLinkList* aList;
+    AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
+    AccountListTail->next = NULL;
+    AccountListTail->prev = NULL;
+
+    /*!
+     * 双向链表的头结点
+     */
+    AccountLinkList* AccountListHead = (AccountLinkList*)malloc(sizeof(AccountLinkList));
+    AccountListHead->length = 1;
+    AccountListHead->next = AccountListTail;
+
+    AccountLinkList* aList = AccountListHead;
+
     LoadAccountFile(aList);
 
     AccountNode* currNode = aList->next;

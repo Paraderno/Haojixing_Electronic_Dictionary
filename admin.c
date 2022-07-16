@@ -3,7 +3,8 @@
  * 管理员功能声明
  */
 #include "admin.h"
-#include "list.h"
+#include "List.h"
+#pragma warning(disable:4996)
 
 /** 新增词条
  * @param

@@ -1,2 +1,4 @@
-﻿  main.c
-  Haojixing_Electronic_Dictionary.vcxproj -> F:\code\Project\Visual_Studio\Haojixing_Electronic_Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
+﻿  public.c
+D:\myVSC_code\Dictionary\admin.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  LINK : 没有找到 D:\myVSC_code\Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe 或上一个增量链接没有生成它；正在执行完全链接
+  Haojixing_Electronic_Dictionary.vcxproj -> D:\myVSC_code\Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
