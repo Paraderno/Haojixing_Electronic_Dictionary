@@ -27,13 +27,13 @@
     <ClCompile Include="admin.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="user.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ConsoleLib.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="draw.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="user.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,9 +44,6 @@
     <ClInclude Include="List.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="user.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="draw.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -54,6 +51,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleLib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="user.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

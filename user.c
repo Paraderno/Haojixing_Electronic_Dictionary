@@ -1,6 +1,6 @@
 /*
  * Created by FallenGemini on 2022/7/13.
- * ç”¨æˆ·åŠŸèƒ½å®ç°
+ * ÓÃ»§¹¦ÄÜÊµÏÖ
  */
 #include "user.h"
 #include "public.h"
@@ -18,11 +18,11 @@ int Register(AccountLinkList* aList, char* accountID, char* password) {
     return 1;
 }
 
-/** è‹±è¯‘æ±‰ */
+/** Ó¢Òëºº */
 void EnToCn(WordLinkList* wList, char* En)
 {
-    WordNode* currentNode = wList->next;   //å–å‡ºç¬¬ä¸€ä¸ªç»“ç‚¹
-    int length = wList->length;  //é“¾è¡¨é•¿åº¦
+    WordNode* currentNode = wList->next;   //È¡³öµÚÒ»¸ö½áµã
+    int length = wList->length;  //Á´±í³¤¶È
 
     int pos = 1;
     for (; pos <= length; pos++)
@@ -32,25 +32,25 @@ void EnToCn(WordLinkList* wList, char* En)
     }
     if (pos == length)
     {
-        printf("æ²¡æœ‰æ‰¾åˆ°è¿™ä¸ªå•è¯\n");
+        printf("Ã»ÓĞÕÒµ½Õâ¸öµ¥´Ê\n");
         return;
     }
 
-    printf("å•è¯ %s ä¸­æ–‡é‡Šä¹‰ä¸º %s\n", currentNode->word.En
+    printf("µ¥´Ê %s ÖĞÎÄÊÍÒåÎª %s\n", currentNode->word.En
         , currentNode->word.Cn);
 }
 
-/** æ±‰è¯‘è‹± */
+/** ººÒëÓ¢ */
 void CnToEn(WordLinkList* wList, char* Cn)
 {
-    WordNode* currentNode = wList->next;   //å–å‡ºç¬¬ä¸€ä¸ªç»“ç‚¹
-    int length = wList->length;  //é“¾è¡¨é•¿åº¦
+    WordNode* currentNode = wList->next;   //È¡³öµÚÒ»¸ö½áµã
+    int length = wList->length;  //Á´±í³¤¶È
     int count = 0;
     int pos = 1;
     for (; pos <= length; pos++)
     {
         if (strstr(currentNode->word.Cn, Cn) != NULL) {
-            printf("ä¸­æ–‡é‡Šä¹‰ä¸º %s  è¯æ€§ä¸º %sï¼Œ\n", currentNode->word.Cn,
+            printf("ÖĞÎÄÊÍÒåÎª %s  ´ÊĞÔÎª %s£¬\n", currentNode->word.Cn,
                 currentNode->word.En);
             count++;
         }
@@ -58,13 +58,13 @@ void CnToEn(WordLinkList* wList, char* Cn)
     }
     if (count == 0)
     {
-        printf("æ²¡æœ‰æ‰¾åˆ°è¿™ä¸ªå•è¯\n");
+        printf("Ã»ÓĞÕÒµ½Õâ¸öµ¥´Ê\n");
         return;
     }
 }
 
-/** æ”¶è—è¯æ±‡ */
+/** ÊÕ²Ø´Ê»ã */
 void Star(FILE* sPtr);
 
-/** ç®¡ç†æ”¶è—å¤¹ */
+/** ¹ÜÀíÊÕ²Ø¼Ğ */
 void StarCase();
