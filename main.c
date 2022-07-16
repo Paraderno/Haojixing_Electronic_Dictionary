@@ -11,7 +11,8 @@
 #include "public.h"
 #include "draw.h"
 #include"user.h"
-
+#include <mmsystem.h>
+#pragma comment(lib, "Winmm.lib")
 
 void test1(WordLinkList* WordListHead)
 {
@@ -79,24 +80,36 @@ void test3(WordLinkList* WordListHead) {
 }
 
 int main() {
+    //播放音乐函数
+    //PlaySound(TEXT("./resource/菊次郎的夏天.wav"), NULL, SND_FILENAME | SND_ASYNC);
+    //创建中英词库头结点
     WordNode* WordListTail = (WordNode*)malloc(sizeof(WordNode));
     WordListTail->next = NULL;
     WordListTail->prev = NULL;
+    //创建收藏夹词库的头结点
+    WordNode* starCaseTail = (WordNode*)malloc(sizeof(WordNode));
+    starCaseTail->next = NULL;
+    starCaseTail->prev = NULL;
 
     /*!
      * 双向链表的头结点
      */
+     //中英词库的链表
     WordLinkList* WordListHead = (WordLinkList*)malloc(sizeof(WordLinkList));
     WordListHead->length = 1;
     WordListHead->next = WordListTail;
     LoadDictionary(WordListHead);
-
-    //PrintWordLin/*kList(WordListHead);
-    //return 0;*/
-
+    //账户的链表
     AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
     AccountListTail->next = NULL;
     AccountListTail->prev = NULL;
+    //收藏夹的链表
+    WordLinkList* starCaseHead = (WordLinkList*)malloc(sizeof(WordLinkList));
+    starCaseHead->length = 1;
+    starCaseHead->next = starCaseTail;
+    //加载收藏夹
+    LoadstarCaseHeadDictionary(starCaseHead);
+   
 
     /*!
      * 双向链表的头结点

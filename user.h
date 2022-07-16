@@ -41,4 +41,10 @@ void Star(FILE* sPtr);
  */
 void StarCase();
 
+/*!
+* 载入收藏夹词库
+* @param wList 收藏夹链表头结点
+*/
+void LoadstarCaseHeadDictionary(WordLinkList* wList);
+
 #endif //HAOJIXING_ELECTRONIC_DICTIONARY_USER_H

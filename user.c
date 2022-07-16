@@ -71,3 +71,28 @@ void Star(FILE* sPtr);
 
 /** 管理收藏夹 */
 void StarCase();
+
+/** 载入收藏夹 */
+void LoadstarCaseHeadDictionary(WordLinkList* wList) {
+    Word word;
+    int size = 0;
+
+    // 打开文件 ("dFile" is short for "dictionary file")
+    FILE* dFile = fopen("resource\\starCase.txt", "r");
+
+    if (dFile == NULL) {
+        printf("词库文件丢失！！！\n");
+    }
+    else {
+        // 读入链表
+        while (!feof(dFile)) {
+            size++;
+            fscanf(dFile, "%s %s", word.En, word.Cn);
+            // 将词库数据写入空链表
+            InsertWordLinkList(wList, size, word);
+        }
+        //printf("加载数据成功.\n");
+    }
+
+    fclose(dFile);
+}
