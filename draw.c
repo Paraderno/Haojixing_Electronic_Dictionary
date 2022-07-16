@@ -192,20 +192,19 @@ void DrawLogInPage()
     DrawInnerFrame();
     SetPosition(31, 3);
     printf("*欢迎登录*");
-    SetPosition(18, 10);
+    SetPosition(18, 9);
+    printf("请输入账户类型（管理员为1，用户为0）：");
+    SetPosition(18, 12);
     printf("请输入用户名：");
     SetPosition(18, 15);
     printf("请输入密码：");
 }
 
-void DrawFindEn(WordLinkList* WordListHead)
+void DrawFindEn()
 {
     DrawTheFrame();
     SetPosition(5, 2);
     printf("请输入中文释义：");
-    char s[50];
-    scanf("%s", &s);
-    EnToCn(WordListHead, s);
     DrawDividingLine();
     SetPosition(5, 19);
     printf("1.回到主菜单");
@@ -216,17 +215,12 @@ void DrawFindEn(WordLinkList* WordListHead)
 
 }
 
-void DrawFindCn(WordLinkList* WordListHead)
+void DrawFindCn()
 {
     DrawTheFrame();
     SetPosition(5, 2);
     printf("请输入英文单词：");
     DrawDividingLine();
-    SetPosition(21, 2);
-    char s[50];
-    scanf("%s", &s);
-    SetPosition(5, 12);
-    EnToCn(WordListHead, s);
     SetPosition(5, 19);
     printf("1.回到主菜单");
     SetPosition(5, 21);
@@ -302,8 +296,6 @@ void DrawSuccessMessage(const char* message)
     DrawMessageFrame();
     SetPosition(30, 12);
     printf("%s", text);
-    getchar();
-    system("cls");
 }
 
 void DrawFailMessage(const char* message)
@@ -315,6 +307,4 @@ void DrawFailMessage(const char* message)
     DrawMessageFrame();
     SetPosition(30, 12);
     printf("%s", text);
-    getchar();
-    system("cls");
 }

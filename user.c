@@ -8,29 +8,14 @@
 #include "List.h"
 #pragma warning(disable:4996)
 
-int Register(char* accountID, char* password) {
-    AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
-    AccountListTail->next = NULL;
-    AccountListTail->prev = NULL;
-
-    /*!
-     * 双向链表的头结点
-     */
-    AccountLinkList* AccountListHead = (AccountLinkList*)malloc(sizeof(AccountLinkList));
-    AccountListHead->length = 1;
-    AccountListHead->next = AccountListTail;
-
+int Register(AccountLinkList* aList, char* accountID, char* password) {
     Account account;
-    AccountLinkList* aList = AccountListHead;
-
     account.type = USER;
     strcpy(account.ID, accountID);
     strcpy(account.password, password);
-
-    LoadAccountFile(aList);
     InsertAccountLinkList(aList, aList->length, account);
     SaveAccountData(aList);
-
+    return 1;
 }
 
 /** 英译汉 */
@@ -40,19 +25,19 @@ void EnToCn(WordLinkList* wList, char* En)
     int length = wList->length;  //链表长度
 
     int pos = 1;
-    for(; pos <= length; pos++)
+    for (; pos <= length; pos++)
     {
-        if(strcmp(currentNode->word.En,En) == 0) break;
+        if (strcmp(currentNode->word.En, En) == 0) break;
         currentNode = currentNode->next;
     }
-    if(pos == length)
+    if (pos == length)
     {
         printf("没有找到这个单词\n");
         return;
     }
 
-    printf("单词 %s 中文释义为 %s\n",currentNode->word.En
-            ,currentNode->word.Cn);
+    printf("单词 %s 中文释义为 %s\n", currentNode->word.En
+        , currentNode->word.Cn);
 }
 
 /** 汉译英 */
@@ -62,16 +47,16 @@ void CnToEn(WordLinkList* wList, char* Cn)
     int length = wList->length;  //链表长度
     int count = 0;
     int pos = 1;
-    for(; pos <= length; pos++)
+    for (; pos <= length; pos++)
     {
-        if(strstr(currentNode->word.Cn,Cn) != NULL) {
+        if (strstr(currentNode->word.Cn, Cn) != NULL) {
             printf("中文释义为 %s  词性为 %s，\n", currentNode->word.Cn,
-                   currentNode->word.En);
+                currentNode->word.En);
             count++;
         }
         currentNode = currentNode->next;
     }
-    if(count == 0)
+    if (count == 0)
     {
         printf("没有找到这个单词\n");
         return;
@@ -79,7 +64,7 @@ void CnToEn(WordLinkList* wList, char* Cn)
 }
 
 /** 收藏词汇 */
-void Star(FILE *sPtr);
+void Star(FILE* sPtr);
 
 /** 管理收藏夹 */
 void StarCase();

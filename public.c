@@ -9,19 +9,20 @@
 #include "admin.h"
 #pragma warning(disable:4996)
 
-/** 载入词库 */
-void LoadDictionary (WordLinkList* wList) {
+ /** 载入词库 */
+void LoadDictionary(WordLinkList* wList) {
     Word word;
-    int size=0;
+    int size = 0;
 
     // 打开文件 ("dFile" is short for "dictionary file")
     FILE* dFile = fopen("resource\\Dictionary.txt", "r");
 
-    if ( dFile == NULL ) {
+    if (dFile == NULL) {
         printf("词库文件丢失！！！\n");
-    } else {
+    }
+    else {
         // 读入链表
-        while( !feof(dFile) ) {
+        while (!feof(dFile)) {
             size++;
             fscanf(dFile, "%s %s", word.En, word.Cn);
             // 将词库数据写入空链表
@@ -34,32 +35,35 @@ void LoadDictionary (WordLinkList* wList) {
 }
 
 /** 载入账户信息数据 */
-void LoadAccountFile (AccountLinkList* aList) {
+int LoadAccountFile(AccountLinkList* aList) {
     Account account;
     int size = 0;
-
+    int flag = 0;
     // 打开文件 ("aFile" is short for "account file")
     FILE* aFile = fopen("resource\\Account.txt", "r");
 
     if (aFile == NULL) {
         printf("账户信息文件丢失！！！");
-    } else {
+        flag = 0;
+    }
+    else {
         // 读入链表
-        while( !feof(aFile) ) {
+        while (!feof(aFile)) {
             size++;
             fscanf(aFile, "%s %s %d", account.ID, account.password, &account.type);
             // 将账户信息数据写入空链表
             InsertAccountLinkList(aList, size, account);
         }
-        printf("加载数据成功.\n");
+        flag = 1;
     }
 
     fclose(aFile);
+    return flag;
 }
 
 
 /** 登录账户 */
-int LogIn(int type, char* accountID, char* password)
+int LogIn(AccountLinkList* aList, int type, char* accountID, char* password)
 {
     Account account;  // 存放读入的账户数据
     account.type = type;
@@ -75,25 +79,10 @@ int LogIn(int type, char* accountID, char* password)
     scanf("%s", account.password);
      */
 
-    AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
-    AccountListTail->next = NULL;
-    AccountListTail->prev = NULL;
-
-    /*!
-     * 双向链表的头结点
-     */
-    AccountLinkList* AccountListHead = (AccountLinkList*)malloc(sizeof(AccountLinkList));
-    AccountListHead->length = 1;
-    AccountListHead->next = AccountListTail;
-
-    AccountLinkList* aList = AccountListHead;
-
-    LoadAccountFile(aList);
-
     AccountNode* currNode = aList->next;
     int countEqual;
-    for (countEqual = 0; currNode ; ) {
-        isAccountEqual(account, currNode->account) ? countEqual++ : 0;
+    for (countEqual = 0; currNode; ) {
+        isAccountEqual(account, currNode->account) ? countEqual = 1 : 0;
     }
 
     // countEqual 值只能为 1 或 0；
@@ -136,7 +125,7 @@ int LogOut(int type, char* accountID, char* password)
 
     AccountNode* currNode = aList->next;
     int countEqual = 0;
-    for (int i = 1; currNode ; i++) {
+    for (int i = 1; currNode; i++) {
         if (isAccountEqual(account, currNode->account)) {
             DeleteAccountData(aList, account);
             countEqual++;
@@ -157,16 +146,16 @@ void FuzzySearch(WordLinkList* wList, char* En)
     int length = wList->length;  //链表长度
     int count = 0;
     int pos = 1;
-    for(; pos <= length; pos++)
+    for (; pos <= length; pos++)
     {
-        if(strstr(currentNode->word.En,En) != NULL) {
+        if (strstr(currentNode->word.En, En) != NULL) {
             printf("你可能在找这个单词？%s, %s\n", currentNode->word.En,
-                   currentNode->word.Cn);
+                currentNode->word.Cn);
             count++;
         }
         currentNode = currentNode->next;
     }
-    if(count == 0)
+    if (count == 0)
     {
         printf("没有找到这个单词.\n");
         return;

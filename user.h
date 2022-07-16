@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include "list.h"
 
-/*!
- * 用户注册
- * @return 注册成功返回1，注册失败返回0
- */
+ /*!
+  * 用户注册
+  * @return 注册成功返回1，注册失败返回0
+  */
 int Register(char* accountID, char* password);
 
 /*!
@@ -32,7 +32,7 @@ void CnToEn(WordLinkList* wList, char* word);
  * 收藏单词
  * @param sPtr 文件
  */
-void Star(FILE *sPtr);
+void Star(FILE* sPtr);
 
 /*!
  * 管理收藏夹

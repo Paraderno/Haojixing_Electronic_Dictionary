@@ -14,9 +14,9 @@
 #define SIZE_ID 10
 #define SIZE_PW 20
 
-/*!
- * 单词词条，包含英文 En、词性与中文 Cn
- */
+ /*!
+  * 单词词条，包含英文 En、词性与中文 Cn
+  */
 typedef struct word
 {
     char En[50];
@@ -26,7 +26,7 @@ typedef struct word
 /*!
  * 账户信息记录，包含ID、密码、账户类型
  */
-typedef struct account{
+typedef struct account {
     char ID[SIZE_ID];
     char password[SIZE_PW];
     int type;   // 账户类型 普通用户USER 管理员ADMIN

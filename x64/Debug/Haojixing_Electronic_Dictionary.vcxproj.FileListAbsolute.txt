@@ -1,2 +1,1 @@
-F:\code\Project\Visual_Studio\Haojixing_Electronic_Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
-D:\myVSC_code\Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
+C:\Users\lijia\Downloads\Haojixing_Electronic_Dictionary-master\Haojixing_Electronic_Dictionary-master\x64\Debug\Haojixing_Electronic_Dictionary.exe

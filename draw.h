@@ -275,7 +275,7 @@ void DrawLogInPage();
 *                                                                              *
 --------------------------------------------------------------------------------
  */
-void DrawFindEn(WordLinkList* WordListHead);
+void DrawFindEn();
 
 /*!
  * 绘制英文翻译页面
@@ -307,7 +307,7 @@ void DrawFindEn(WordLinkList* WordListHead);
 *                                                                              *
 --------------------------------------------------------------------------------
  */
-void DrawFindCn(WordLinkList* WordListHead);
+void DrawFindCn();
 
 /*!
  * 绘制收藏夹页面

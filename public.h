@@ -8,7 +8,7 @@
 
 #include "List.h"
 
-// 账户类型 普通用户USER 管理员ADMIN
+ // 账户类型 普通用户USER 管理员ADMIN
 #define USER 0
 #define ADMIN 1
 
@@ -21,8 +21,9 @@ void LoadDictionary(WordLinkList* wList);
 /*!
  * 载入账户信息库
  * @param wList 链表头节点
+ * @return 返回是否加载成功
  */
-void LoadAccountFile(AccountLinkList* aList) ;
+int LoadAccountFile(AccountLinkList* aList);
 
 /*!
  * 账户登录
@@ -34,7 +35,7 @@ void LoadAccountFile(AccountLinkList* aList) ;
  * @return 1 登录成功
  * @return 0 登陆失败
  */
-int LogIn(int type, char* accountID, char* password);
+int LogIn(AccountLinkList* aList,int type, char* accountID, char* password);
 
 /*!
  * 账户注销

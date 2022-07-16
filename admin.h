@@ -18,7 +18,7 @@
  * @param attribute 词性
  * @param Cn 中文释义
  */
-void Add(WordLinkList * wList, char* En, char* Cn);
+void Add(WordLinkList* wList, char* En, char* Cn);
 
 /*!删除词条
  * 管理员输入需要删除的单词，文件中对应的单词将被删除，若输入不存在的单词将会报错
@@ -27,7 +27,7 @@ void Add(WordLinkList * wList, char* En, char* Cn);
  * @param attribute 词性
  * @param Cn 中文释义
  */
-void Delete(WordLinkList * wList, char* En,  char* Cn);
+void Delete(WordLinkList* wList, char* En, char* Cn);
 
 /*!修改词条
  * 管理员输入需要修改单词的下标，以及修改后的单词、词性、中文。若输入不存在的单词将会报错
@@ -37,7 +37,7 @@ void Delete(WordLinkList * wList, char* En,  char* Cn);
  * @param attribute 词性
  * @param Cn 中文释义
  */
-void Modify(WordLinkList * wList, int pos, char* En, char* Cn);
+void Modify(WordLinkList* wList, int pos, char* En, char* Cn);
 
 /*!
  * 保存词典文件修改
