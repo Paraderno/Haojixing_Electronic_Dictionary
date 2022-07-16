@@ -151,7 +151,7 @@ int main() {
             scanf("%s", account.password);
             // 账户登录，通过函数判定进入哪一个界面
             int count = 0;
-            //count = LogIn(AccountListHead, account.type, account.ID, account.password);
+            count = LogIn(AccountListHead, account.type, account.ID, account.password);
             if (count == 1)
             {
                 system("cls");
@@ -189,6 +189,7 @@ int main() {
         {
             SetPosition(33, 20);
             printf("欢迎再次使用\n");
+            sleep_second(2);
             //SetPosition(33, 25);
             break;
         }
@@ -200,7 +201,7 @@ int main() {
         {
             system("cls");
             DrawUserMenu();
-            SetPosition(30, 17);
+            SetPosition(35, 17);
             int choice = 0;
             scanf("%d", &choice);
             switch (choice)
@@ -216,10 +217,6 @@ int main() {
                     break;
                 case 4:
                     now = 10;
-                    break;
-                case 5:
-                    //music();
-                    now = 0;
                     break;
                 default:
                     now = 0;

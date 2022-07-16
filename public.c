@@ -81,7 +81,7 @@ int LogIn(AccountLinkList* aList, int type, char* accountID, char* password)
 
     AccountNode* currNode = aList->next;
     int countEqual;
-    for (countEqual = 0; currNode; ) {
+    for (countEqual = 0; currNode; currNode = currNode->next) {
         isAccountEqual(account, currNode->account) ? countEqual = 1 : 0;
     }
 

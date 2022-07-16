@@ -169,8 +169,6 @@ void DrawUserMenu()
     SetPosition(18, 13);
     printf("4.展示收藏夹");
     SetPosition(18, 15);
-    printf("5.播放音乐");
-    SetPosition(18, 17);
     printf("请输入您的选择：");
 }
 
