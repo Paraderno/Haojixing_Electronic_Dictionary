@@ -93,7 +93,8 @@ int main() {
     //  test2(WordListHead);
     //  test3(WordListHead);
 
-    int opt,now;
+    int opt = -1;
+    int now = -1;
     DrawTheMainMenu();
     SetPosition(35, 16);
     scanf("%d", &opt);
@@ -113,6 +114,7 @@ int main() {
         }
         if (opt == 2)
         {
+            system("cls");
             DrawUserMenu();
         }
         if (opt == 3)
