@@ -30,7 +30,7 @@ void EnToCn(WordLinkList* wList, char* En)
         if (strcmp(currentNode->word.En, En) == 0) break;
         currentNode = currentNode->next;
     }
-    if (pos == length)
+    if (pos == length+1)
     {
         printf("没有找到这个单词\n");
         return;
@@ -61,6 +61,7 @@ void CnToEn(WordLinkList* wList, char* Cn)
     }
     if (count == 0)
     {
+        SetPosition(5, 10);
         printf("没有找到这个单词\n");
         return;
     }
