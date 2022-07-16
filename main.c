@@ -101,9 +101,7 @@ int main() {
     AccountLinkList* AccountListHead = (AccountLinkList*)malloc(sizeof(AccountLinkList));
     AccountListHead->length = 1;
     AccountListHead->next = AccountListTail;
-    if (LoadAccountFile(AccountListHead) == 0) {
-        return 0;
-    }
+    LoadAccountFile(AccountListHead);
 
     //  test1(WordListHead);
     //  test2(WordListHead);
@@ -171,7 +169,7 @@ int main() {
                 DrawFailMessage("登录");
                 now = 0;
             }
-            sleep_second(2);
+            sleep_second(1);
         }
         if (opt == 2)
         {
@@ -183,7 +181,19 @@ int main() {
             SetPosition(30, 15);
             scanf("%s", account.password);
             // 账户注册
-            scanf("%d", &now);//卡住循环，后续会删除
+            if (Register(AccountListHead, account.ID, account.password) == 1)
+            {
+                system("cls");
+                DrawSuccessMessage("注册");
+                now = 0;
+            }
+            else
+            {
+                system("cls");
+                DrawFailMessage("注册");
+                now = 0;
+            }
+            sleep_second(1);
         }
         if (opt == 3)
         {
@@ -195,7 +205,31 @@ int main() {
         }
         if (opt == 4)
         {
-
+            system("cls");
+            DrawLogOutPage();
+            Account account;
+            SetPosition(60, 9);
+            scanf("%d", &account.type);
+            SetPosition(35, 12);
+            scanf("%s", account.ID);
+            SetPosition(35, 15);
+            scanf("%s", account.password);
+            // 账户登录，通过函数判定进入哪一个界面
+            int count = 0;
+            count = LogOut(AccountListHead, account.type, account.ID, account.password);
+            if (count > 1)
+            {
+                system("cls");
+                DrawSuccessMessage("注销");
+                now = 0;
+            }
+            else
+            {
+                system("cls");
+                DrawFailMessage("注销");
+                now = 0;
+            }
+            sleep_second(1);
         }
         if (opt == 5)
         {
@@ -218,8 +252,11 @@ int main() {
                 case 4:
                     now = 10;
                     break;
-                default:
+                case 5:
                     now = 0;
+                    break;
+                default:
+                    now = 5;
                     break;
             }
         }
@@ -232,24 +269,24 @@ int main() {
             scanf("%d", &choice);
             switch (choice)
             {
-            case 1:
-                now = 8;
-                break;
-            case 2:
-                now = 7;
-                break;
-            case 3:
-                now = 11;
-                break;
-            case 4:
-                now = 12;
-                break;
-            case 5:
-                now = 13;
-                break;
-            default:
-                now = 0;
-                break;
+                case 1:
+                    now = 8;
+                    break;
+                case 2:
+                    now = 7;
+                    break;
+                case 3:
+                    now = 11;
+                    break;
+                case 4:
+                    now = 12;
+                    break;
+                case 5:
+                    now = 13;
+                    break;
+                default:
+                    now = 0;
+                    break;
             }
         }
         if (opt == 7)

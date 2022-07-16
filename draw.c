@@ -169,6 +169,8 @@ void DrawUserMenu()
     SetPosition(18, 13);
     printf("4.展示收藏夹");
     SetPosition(18, 15);
+    printf("5.退出登录");
+    SetPosition(18, 17);
     printf("请输入您的选择：");
 }
 
@@ -190,6 +192,20 @@ void DrawLogInPage()
     DrawInnerFrame();
     SetPosition(31, 3);
     printf("*欢迎登录*");
+    SetPosition(18, 9);
+    printf("请输入账户类型（管理员为1，用户为0）：");
+    SetPosition(18, 12);
+    printf("请输入用户名：");
+    SetPosition(18, 15);
+    printf("请输入密码：");
+}
+
+void DrawLogOutPage()
+{
+    DrawTheFrame();
+    DrawInnerFrame();
+    SetPosition(31, 3);
+    printf("*注销页面*");
     SetPosition(18, 9);
     printf("请输入账户类型（管理员为1，用户为0）：");
     SetPosition(18, 12);

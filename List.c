@@ -175,10 +175,11 @@ void DeleteWordLinkListByWord(WordLinkList* wList, Word word)
 }
 
 /** 删除账户信息链表指定元素 */
-void DeleteAccountData(AccountLinkList* aList, Account account) {
+int DeleteAccountData(AccountLinkList* aList, Account account) {
     AccountNode* currentNode = aList->next;   //取出第一个结点
     int length = aList->length;  //链表长度
     int pos = 1;
+    int flag = 0;
     for (; pos <= length; pos++)
     {
         if (isAccountEqual(currentNode->account, account)) break;
@@ -186,15 +187,14 @@ void DeleteAccountData(AccountLinkList* aList, Account account) {
     }
     if (pos == length)
     {
-        printf("没有找到这个单词，删除失败\n");
-        return;
+        return flag;
     }
     aList->length = length - 1;
     if (currentNode->prev == NULL)    //前缀结点为空
     {
         aList->next = currentNode->next;
         (currentNode->next)->prev = NULL;
-        printf("删除成功\n");
+        flag = 1;
     }
     else    //前缀结点不为空
     {
@@ -202,8 +202,9 @@ void DeleteAccountData(AccountLinkList* aList, Account account) {
         AccountNode* nxtNode = currentNode->next;
         preNode->next = nxtNode;
         nxtNode->prev = preNode;
-        printf("删除成功\n");
+        flag = 1;
     }
+    return flag;
 }
 
 /** 查询链表指定位置的元素 */

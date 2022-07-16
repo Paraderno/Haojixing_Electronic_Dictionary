@@ -118,7 +118,7 @@ void DeleteWordLinkListByWord(WordLinkList* wList, Word word);
  * 删除账户信息链表指定元素
  * @param
  * */
-void DeleteAccountData(AccountLinkList* aList, Account account);
+int DeleteAccountData(AccountLinkList* aList, Account account);
 
 /*!
  * 查询链表指定位置的元素

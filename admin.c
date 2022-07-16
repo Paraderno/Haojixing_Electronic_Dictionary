@@ -64,7 +64,7 @@ void SaveAccountData(AccountLinkList* aList) {
     AccountNode* currNode = aList->next;
 
     // 写入数据
-    for (int i = 0; i < aList->length; ++i) {
+    for (int i = 1; i < aList->length; ++i) {
         fprintf(aFile, "%s %s %d\n", currNode->account.ID, currNode->account.password, currNode->account.type);
         currNode = currNode->next;
     }

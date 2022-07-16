@@ -70,15 +70,6 @@ int LogIn(AccountLinkList* aList, int type, char* accountID, char* password)
     strcpy(account.ID, accountID);
     strcpy(account.password, password);
 
-    /*
-    printf("请输入账户类型（1管理员 2普通用户）：");
-    scanf("%d", &account.type);
-    printf("请输入您的用户ID：");
-    scanf("%s", account.ID);
-    printf("请输入您的用户密码：");
-    scanf("%s", account.password);
-     */
-
     AccountNode* currNode = aList->next;
     int countEqual;
     for (countEqual = 0; currNode; currNode = currNode->next) {
@@ -92,46 +83,16 @@ int LogIn(AccountLinkList* aList, int type, char* accountID, char* password)
 }
 
 /** 注销用户 */
-int LogOut(int type, char* accountID, char* password)
+int LogOut(AccountLinkList* aList, int type, char* accountID, char* password)
 {
     Account account;  // 存放读入的账户数据
     account.type = type;
     strcpy(account.ID, accountID);
     strcpy(account.password, password);
-
-    /*
-    printf("请输入当前账户类型（1管理员 2普通用户）：");
-    scanf("%d", &account.type);
-    printf("请输入当前使用的的账户ID：");
-    scanf("%s", account.ID);
-    printf("请输入当前使用的的账户密码：");
-    scanf("%s", account.password);
-    */
-
-    AccountNode* AccountListTail = (AccountNode*)malloc(sizeof(AccountNode));
-    AccountListTail->next = NULL;
-    AccountListTail->prev = NULL;
-
-    /*!
-     * 双向链表的头结点
-     */
-    AccountLinkList* AccountListHead = (AccountLinkList*)malloc(sizeof(AccountLinkList));
-    AccountListHead->length = 1;
-    AccountListHead->next = AccountListTail;
-
-    AccountLinkList* aList = AccountListHead;
-
-    LoadAccountFile(aList);
-
-    AccountNode* currNode = aList->next;
     int countEqual = 0;
-    for (int i = 1; currNode; i++) {
-        if (isAccountEqual(account, currNode->account)) {
-            DeleteAccountData(aList, account);
-            countEqual++;
-        }
-    }
-    SaveAccountData(aList);
+
+    while (DeleteAccountData(aList, account) == 1)
+        countEqual++;
 
     return countEqual;
 }

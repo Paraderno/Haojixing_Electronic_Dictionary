@@ -46,7 +46,7 @@ int LogIn(AccountLinkList* aList,int type, char* accountID, char* password);
  * @return 1 登录成功
  * @return 0 登录失败
  */
-int LogOut(int type, char* account, char* password);
+int LogOut(AccountLinkList* aList, int type, char* accountID, char* password);
 
 /*!
  * 初始功能菜单
