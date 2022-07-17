@@ -12,7 +12,7 @@ SCU软件学院 $2022$ 年暑期实训项目
 
 操作系统： $\text{Windows 10}$
 
-集成开发工具：$\text{CLion 2021.3.2}$
+集成开发工具：$\text{Visual Studio}$
 
 编译环境：$\text{ANSI c11}$
 
