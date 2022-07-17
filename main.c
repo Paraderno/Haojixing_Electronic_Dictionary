@@ -310,9 +310,9 @@ int main() {
             int length = starCaseHead->length - 1;
             DrawTheStarCase(length);
             WordNode* currentNode = starCaseHead->next;
-            for (int i = 1; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
-                SetPosition(5, 5 + i);
+                SetPosition(5, 6 + i);
                 printf("%-10s%-10s\n", currentNode->word.En, currentNode->word.Cn);
                 currentNode = currentNode->next;
             }

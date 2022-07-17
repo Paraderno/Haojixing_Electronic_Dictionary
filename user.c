@@ -74,12 +74,12 @@ void CnToEn(WordLinkList* wList, char* Cn)
 
 /** 收藏词汇 */
 void Star(WordLinkList* wList, Word currWord) {
-    WordLinkList* sList = (WordLinkList*)malloc(sizeof(WordLinkList));
-    sList->length = 1;
-    sList->next = (WordNode*)malloc(sizeof(WordNode));
+    //WordLinkList* sList = (WordLinkList*)malloc(sizeof(WordLinkList));
+    //sList->length = 1;
+    //sList->next = (WordNode*)malloc(sizeof(WordNode));
 
-    InsertWordLinkList(sList, sList->length, currWord);   // 插入链表
-    SaveStarCase(sList);   // 保存（写入）收藏夹
+    InsertWordLinkList(wList, wList->length, currWord);   // 插入链表
+    SaveStarCase(wList);   // 保存（写入）收藏夹
 }
 
 /** 管理收藏夹 */
