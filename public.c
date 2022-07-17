@@ -10,7 +10,7 @@
 #pragma warning(disable:4996)
 
  /** 载入词库 */
-void LoadDictionary(WordLinkList* wList) {
+int LoadDictionary(WordLinkList* wList) {
     Word word;
     int size = 0;
 
@@ -19,6 +19,7 @@ void LoadDictionary(WordLinkList* wList) {
 
     if (dFile == NULL) {
         printf("词库文件丢失！！！\n");
+        return 0;
     }
     else {
         // 读入链表
@@ -32,6 +33,7 @@ void LoadDictionary(WordLinkList* wList) {
     }
 
     fclose(dFile);
+    return 1;
 }
 
 /** 载入账户信息数据 */
@@ -93,7 +95,7 @@ int LogOut(AccountLinkList* aList, int type, char* accountID, char* password)
 
     while (DeleteAccountData(aList, account) == 1)
         countEqual++;
-
+    
     return countEqual;
 }
 

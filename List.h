@@ -72,7 +72,7 @@ typedef struct accountLinkList
  * 比较两个单词是否相同
  * @param word1 单词1
  * @param word2 单词2
- * @return 相同则返回1，不同则返回2
+ * @return 相同则返回1，不同则返回0
  */
 int isWordEqual(Word word1, Word word2);
 

@@ -147,14 +147,15 @@ void DeleteWordLinkListByWord(WordLinkList* wList, Word word)
     WordNode* currentNode = wList->next;   //取出第一个结点
     int length = wList->length;  //链表长度
     int pos = 1;
-    for (; pos <= length; pos++)
+    for (; pos < length; pos++)
     {
         if (isWordEqual(currentNode->word, word)) break;
         currentNode = currentNode->next;
     }
     if (pos == length)
     {
-        printf("没有找到这个单词，删除失败\n");
+        SetPosition(5, 10);
+        printf("没有找到这个单词，操作失败\n");
         return;
     }
     wList->length = length - 1;
@@ -162,7 +163,8 @@ void DeleteWordLinkListByWord(WordLinkList* wList, Word word)
     {
         wList->next = currentNode->next;
         (currentNode->next)->prev = NULL;
-        printf("删除成功\n");
+        SetPosition(5, 10);
+        printf("操作成功\n");
     }
     else    //前缀结点不为空
     {
@@ -170,7 +172,8 @@ void DeleteWordLinkListByWord(WordLinkList* wList, Word word)
         WordNode* nxtNode = currentNode->next;
         preNode->next = nxtNode;
         nxtNode->prev = preNode;
-        printf("删除成功\n");
+        SetPosition(5, 10);
+        printf("操作成功\n");
     }
 }
 
@@ -180,7 +183,7 @@ int DeleteAccountData(AccountLinkList* aList, Account account) {
     int length = aList->length;  //链表长度
     int pos = 1;
     int flag = 0;
-    for (; pos <= length; pos++)
+    for (; pos < length; pos++)
     {
         if (isAccountEqual(currentNode->account, account)) break;
         currentNode = currentNode->next;
@@ -265,3 +268,18 @@ void ChangeWordListElement(WordLinkList* wList, int pos, Word word)
     currentNode->word = word;
     printf("修改成功\n");
 }
+
+/** 修改词条链表指定元素 */
+//void ChangeWordListElement(WordLinkList* wList, Word word1, Word word2)
+//{
+//    WordNode* currentNode = wList->next;   //取出第一个结点
+//    int length = wList->length;  //链表长度
+//    for (int i = 1; i < length; i++)
+//    {
+//        if (isWordEqual(currentNode->word, word1))
+//        {
+//            currentNode->word = word2;
+//        }
+//        currentNode = currentNode->next;
+//    }
+//}

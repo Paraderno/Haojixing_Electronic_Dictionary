@@ -16,7 +16,7 @@
  * 载入中英单词词库
  * @param wList 链表头结点
  */
-void LoadDictionary(WordLinkList* wList);
+int LoadDictionary(WordLinkList* wList);
 
 /*!
  * 载入账户信息库

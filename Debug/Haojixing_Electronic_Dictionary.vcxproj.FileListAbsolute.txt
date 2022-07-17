@@ -1,0 +1,3 @@
+C:\Users\Travis Young\Desktop\Training\VS_Haojixing_Electronic_Dictionary-master\Haojixing_Electronic_Dictionary-master\Debug\Haojixing_Electronic_Dictionary.exe
+C:\Users\Travis Young\Desktop\Training\Day7\Haojixing_Electronic_Dictionary\Debug\Haojixing_Electronic_Dictionary.exe
+C:\Users\Travis Young\Desktop\Training\ProgramPrj\Haojixing_Electronic_Dictionary\Debug\Haojixing_Electronic_Dictionary.exe

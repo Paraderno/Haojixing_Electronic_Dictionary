@@ -14,12 +14,12 @@ void DrawTheFrame()
         printf("-");
     }
 
-    SetPosition(0, 25);
+    SetPosition(0, 30);
     for (int i = 0; i < 80; ++i) {
         printf("-");
     }
 
-    for (int i = 1; i < 25; ++i) {
+    for (int i = 1; i < 30; ++i) {
         SetPosition(79, i);
         printf("*");
         SetPosition(0, i);
@@ -37,12 +37,12 @@ void DrawChangeableFrame(int sum)
         printf("-");
     }
 
-    SetPosition(0, 25 + sum);
+    SetPosition(0, 30 + sum);
     for (int i = 0; i < 80; ++i) {
         printf("-");
     }
 
-    for (int i = 1; i < 25 + sum; ++i) {
+    for (int i = 1; i < 30 + sum; ++i) {
         SetPosition(79, i);
         printf("*");
         SetPosition(0, i);
@@ -120,16 +120,14 @@ void DrawTheMainMenu()
 {
     DrawTheFrame();
     DrawInnerFrame();
-    SetPosition(28, 3);
+    SetPosition(28, 5);
     printf("欢迎使用好记星电子词典！");
-    SetPosition(18, 8);
-    printf("1.登陆");
     SetPosition(18, 10);
-    printf("2.注册");
+    printf("1.登录");
     SetPosition(18, 12);
-    printf("3.退出");
+    printf("2.注册");
     SetPosition(18, 14);
-    printf("4.注销");
+    printf("3.退出");
     SetPosition(18, 16);
     printf("请输入您的选择：");
 }
@@ -140,16 +138,14 @@ void DrawAdminMenu()
     DrawInnerFrame();
     SetPosition(31, 3);
     printf("*好记星电子词典*");
-    SetPosition(18, 7);
-    printf("1.查询中文释义");
     SetPosition(18, 9);
-    printf("2.查询单词");
+    printf("1.增加单词");
     SetPosition(18, 11);
-    printf("3.增添单词");
+    printf("2.删除单词");
     SetPosition(18, 13);
-    printf("4.删除单词");
+    printf("3.修改单词");
     SetPosition(18, 15);
-    printf("5.修改单词");
+    printf("4.退出");
     SetPosition(18, 17);
     printf("请输入您的选择：");
 }
@@ -158,19 +154,19 @@ void DrawUserMenu()
 {
     DrawTheFrame();
     DrawInnerFrame();
-    SetPosition(31, 3);
+    SetPosition(31, 4);
     printf("*好记星电子词典*");
-    SetPosition(18, 7);
-    printf("1.查询中文释义");
-    SetPosition(18, 9);
-    printf("2.查询单词");
-    SetPosition(18, 11);
-    printf("3.收藏单词");
-    SetPosition(18, 13);
-    printf("4.展示收藏夹");
-    SetPosition(18, 15);
-    printf("5.退出登录");
-    SetPosition(18, 17);
+    SetPosition(18, 8);
+    printf("1.英文查中文");
+    SetPosition(18, 10);
+    printf("2.中文查英文");
+    SetPosition(18, 12);
+    printf("3.收藏夹功能");
+    SetPosition(18, 14);
+    printf("4.退出登录");
+    SetPosition(18, 16);
+    printf("5.注销账号");
+    SetPosition(18, 18);
     printf("请输入您的选择：");
 }
 
@@ -219,12 +215,12 @@ void DrawFindEn()
     DrawTheFrame();
     SetPosition(5, 2);
     printf("请输入中文释义：");
-    DrawDividingLine();
-    SetPosition(5, 19);
+    DrawChangeableDividingLine(5);
+    SetPosition(5, 24);
     printf("1.回到主菜单");
-    SetPosition(5, 21);
+    SetPosition(5, 26);
     printf("2.退出");
-    SetPosition(5, 23);
+    SetPosition(5, 28);
     printf("请输入您的选择：");
 
 }
@@ -238,45 +234,47 @@ void DrawFindCn()
     SetPosition(5, 19);
     printf("1.回到主菜单");
     SetPosition(5, 21);
-    printf("2.退出");
+    printf("2.收藏此单词");
     SetPosition(5, 23);
+    printf("3.退出");
+    SetPosition(5, 25);
     printf("请输入您的选择：");
 }
 
 void DrawTheStarCase(int sum)
 {
-    if (sum < 10)
-    {
-        DrawTheFrame();
-        SetPosition(4, 2);
-        printf("*收藏夹*");
-        DrawDividingLine();
-        SetPosition(5, 19);
-        printf("1.回到主菜单");
-        SetPosition(5, 21);
-        printf("2.退出");
-        SetPosition(5, 23);
-        printf("请输入您的选择：");
-    }
-    else
-    {
+    //if (sum < 10)
+    //{
+    //    DrawTheFrame();
+    //    SetPosition(4, 2);
+    //    printf("*收藏夹*");
+    //    DrawDividingLine();
+    //    SetPosition(5, 19);
+    //    printf("1.删除词条");
+    //    SetPosition(5, 21);
+    //    printf("2.退出");
+    //    SetPosition(5, 23);
+    //    printf("请输入您的选择：");
+    //}
+    //else
+    //{
         DrawChangeableFrame(sum);
         SetPosition(4, 2);
         printf("*收藏夹*");
         DrawChangeableDividingLine(sum);
         SetPosition(5, 19 + sum);
-        printf("1.回到主菜单");
+        printf("1.删除词条");
         SetPosition(5, 21 + sum);
         printf("2.退出");
         SetPosition(5, 23 + sum);
         printf("请输入您的选择：");
-    }
+    //}
 }
 
 void DrawAddPage()
 {
     DrawTheFrame();
-    SetPosition(5, 2);
+    SetPosition(5, 1);
     printf("请输入要增加的单词：");
     DrawDividingLine();
     SetPosition(5, 19);
@@ -290,8 +288,22 @@ void DrawAddPage()
 void DrawDeletePage()
 {
     DrawTheFrame();
-    SetPosition(5, 2);
+    SetPosition(5, 1);
     printf("请输入要删除的单词：");
+    DrawDividingLine();
+    SetPosition(5, 19);
+    printf("1.回到主菜单");
+    SetPosition(5, 21);
+    printf("2.退出");
+    SetPosition(5, 23);
+    printf("请输入您的选择：");
+}
+
+void DrawChangePage()
+{
+    DrawTheFrame();
+    SetPosition(5, 1);
+    printf("请输入要修改的单词：");
     DrawDividingLine();
     SetPosition(5, 19);
     printf("1.回到主菜单");

@@ -1,2 +1,6 @@
 C:\Users\lijia\Desktop\Haojixing_Electronic_Dictionary-master\Haojixing_Electronic_Dictionary-master\x64\Debug\Haojixing_Electronic_Dictionary.exe
 F:\code\Project\repo\Paraderno\Haojixing_Electronic_Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
+F:\code\Project\Haojixing_Electronic_Dictionary-master\Haojixing_Electronic_Dictionary-master\x64\Debug\Haojixing_Electronic_Dictionary.exe
+C:\Users\Travis Young\Desktop\Training\Day7\Haojixing_Electronic_Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
+E:\技术\实训\Haojixing_Electronic_Dictionary\Haojixing_Electronic_Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe
+C:\Users\Travis Young\Desktop\Training\ProgramPrj\Haojixing_Electronic_Dictionary\x64\Debug\Haojixing_Electronic_Dictionary.exe

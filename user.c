@@ -6,6 +6,8 @@
 #include "public.h"
 #include "admin.h"
 #include "List.h"
+#include "draw.h"
+#include <malloc.h>
 #pragma warning(disable:4996)
 
 int Register(AccountLinkList* aList, char* accountID, char* password) {
@@ -19,25 +21,28 @@ int Register(AccountLinkList* aList, char* accountID, char* password) {
 }
 
 /** 英译汉 */
-void EnToCn(WordLinkList* wList, char* En)
+Word EnToCn(WordLinkList* wList, char* En)
 {
     WordNode* currentNode = wList->next;   //取出第一个结点
     int length = wList->length;  //链表长度
 
     int pos = 1;
-    for (; pos <= length; pos++)
+    for (; pos < length; pos++)
     {
         if (strcmp(currentNode->word.En, En) == 0) break;
         currentNode = currentNode->next;
     }
-    if (pos == length+1)
+    if (pos == length)
     {
         printf("没有找到这个单词\n");
-        return;
+        sleep_second(2);
+        Word NullWord = {"", ""};
+        return NullWord;
     }
 
     printf("%-10s%-10s\n", currentNode->word.En
         , currentNode->word.Cn);
+    return currentNode->word;
 }
 
 /** 汉译英 */
@@ -68,32 +73,92 @@ void CnToEn(WordLinkList* wList, char* Cn)
 }
 
 /** 收藏词汇 */
-void Star(FILE* sPtr);
+void Star(WordLinkList* wList, Word currWord) {
+    WordLinkList* sList = (WordLinkList*)malloc(sizeof(WordLinkList));
+    sList->length = 1;
+    sList->next = (WordNode*)malloc(sizeof(WordNode));
+
+    InsertWordLinkList(sList, sList->length, currWord);   // 插入链表
+    SaveStarCase(sList);   // 保存（写入）收藏夹
+}
 
 /** 管理收藏夹 */
-void StarCase();
+void StarCase(int choice) {
+    WordLinkList* sList = (WordLinkList*)malloc(sizeof(WordLinkList));
+    sList->length = 1;
+    sList->next = (WordNode*)malloc(sizeof(WordNode));
+
+    LoadStarCase(sList);
+    // 显示收藏夹内容
+    PrintWordLinkList(sList);
+    
+    if (choice == 1) { // 删除词条
+        printf("请输入要删除的英文单词：");
+
+        Word word;
+        scanf("%50s", word.En);
+
+        WordNode* currNode = sList->next;
+        for ( ; currNode; ) {
+            if (strcmp((currNode->word).En, word.En) == 0) {
+                strcpy(word.Cn, (currNode->word).Cn);
+            }
+            currNode = currNode->next;
+        }
+        DeleteWordLinkListByWord(sList, word);
+        SaveStarCase(sList);
+    } else {  
+        // 退出程序
+
+
+    }
+    
+}
 
 /** 载入收藏夹 */
-void LoadstarCaseHeadDictionary(WordLinkList* wList) {
+int LoadStarCase(WordLinkList* sList) {
     Word word;
     int size = 0;
 
-    // 打开文件 ("dFile" is short for "dictionary file")
-    FILE* dFile = fopen("resource\\starCase.txt", "r");
+    // 打开文件 ("sFile" is short for "StarCase File")
+    FILE* sFile = fopen("resource\\StarCase.txt", "r");
 
-    if (dFile == NULL) {
-        printf("词库文件丢失！！！\n");
+    if (sFile == NULL) {
+        printf("找不到词库文件！！！\n");
     }
     else {
         // 读入链表
-        while (!feof(dFile)) {
+        while (!feof(sFile)) {
             size++;
-            fscanf(dFile, "%s %s", word.En, word.Cn);
+            fscanf(sFile, "%s %s", word.En, word.Cn);
             // 将词库数据写入空链表
-            InsertWordLinkList(wList, size, word);
+            InsertWordLinkList(sList, size, word);
         }
         //printf("加载数据成功.\n");
     }
 
-    fclose(dFile);
+    fclose(sFile);
+    return 1;
+}
+
+
+/** 保存收藏夹 */
+void SaveStarCase(WordLinkList* sList) {
+    // 打开文件 ("sFile" is short for "StarCase File")
+    FILE* sFile = fopen("resource\\StarCase.txt", "w");
+    WordNode* currNode = sList->next;
+
+    // 写入数据
+    for (int i = 1; i < sList->length; ++i) {
+        if (i != 1)
+        {
+            fprintf(sFile, "\n");
+        }
+        fprintf(sFile, "%s %s", currNode->word.En, currNode->word.Cn);
+        currNode = currNode->next;
+    }
+    // printf("保存成功！\n");
+
+    // 关闭文件
+    fclose(sFile);
 }

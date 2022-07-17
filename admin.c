@@ -46,11 +46,15 @@ void SaveDictionary(WordLinkList* wList) {
     WordNode* head = wList->next;
 
     // 写入数据
-    for (int i = 0; i < wList->length; ++i) {
-        fprintf(dFile, "%s %s\n", head->word.En, head->word.Cn);
+    for (int i = 1; i < wList->length; ++i) {
+        if (i != 1)
+        {
+            fprintf(dFile, "\n");
+        }
+        fprintf(dFile, "%s %s", head->word.En, head->word.Cn);
         head = head->next;
     }
-    printf("词库数据保存成功\n");
+    //printf("词库数据保存成功\n");
 
     // 关闭文件
     fclose(dFile);
@@ -65,10 +69,14 @@ void SaveAccountData(AccountLinkList* aList) {
 
     // 写入数据
     for (int i = 1; i < aList->length; ++i) {
-        fprintf(aFile, "%s %s %d\n", currNode->account.ID, currNode->account.password, currNode->account.type);
+        if (i != 1)
+        {
+            fprintf(aFile, "\n");
+        }
+        fprintf(aFile, "%s %s %d", currNode->account.ID, currNode->account.password, currNode->account.type);
         currNode = currNode->next;
     }
-    printf("账户数据保存成功\n");
+    //printf("账户数据保存成功\n");
 
     // 关闭文件
     fclose(aFile);
