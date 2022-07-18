@@ -1,9 +1,0 @@
-abandon vt,丢弃,放弃,抛弃
-ability n,能力,能耐,本领
-able a,有能力的,出色的
-abnormal a,不正常的,变态的
-aboard ad,在船(车)上,上船
-about prep,关于,在…周围
-above prep,在…上面,高于
-abroad ad,(在)国外,到处
-absence n,缺席,不在场,缺乏
