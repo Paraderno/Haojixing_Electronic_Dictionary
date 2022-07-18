@@ -138,15 +138,15 @@ void DrawAdminMenu()
     DrawInnerFrame();
     SetPosition(31, 3);
     printf("*好记星电子词典*");
-    SetPosition(18, 9);
-    printf("1.增加单词");
     SetPosition(18, 11);
-    printf("2.删除单词");
+    printf("1.增加单词");
     SetPosition(18, 13);
-    printf("3.修改单词");
+    printf("2.删除单词");
     SetPosition(18, 15);
-    printf("4.退出");
+    printf("3.修改单词");
     SetPosition(18, 17);
+    printf("4.退出");
+    SetPosition(18, 19);
     printf("请输入您的选择：");
 }
 
@@ -215,12 +215,12 @@ void DrawFindEn()
     DrawTheFrame();
     SetPosition(5, 2);
     printf("请输入中文释义：");
-    DrawChangeableDividingLine(5);
-    SetPosition(5, 24);
+    DrawDividingLine();
+    SetPosition(5, 19);
     printf("1.回到主菜单");
-    SetPosition(5, 26);
+    SetPosition(5, 21);
     printf("2.退出");
-    SetPosition(5, 28);
+    SetPosition(5, 23);
     printf("请输入您的选择：");
 
 }
